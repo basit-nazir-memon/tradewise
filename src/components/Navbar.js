@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar, Container, Nav, Offcanvas, Button, Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,9 +21,9 @@ function Topnav() {
                         <Offcanvas.Body>
                             <hr className="dropdown-divider" style={{ borderTop: '1px solid #e0e0e0' }} />
                             <Nav className="flex-column">
-                                <Nav.Link href="#home">Home</Nav.Link>
-                                <Nav.Link href="#features">Features</Nav.Link>
-                                <Nav.Link href="#pricing">Pricing</Nav.Link>
+                                <Nav.Link> <Link to = "/home">Home</Link> </Nav.Link>
+                                <Nav.Link> <Link to ="/features">Features</Link></Nav.Link>
+                                <Nav.Link> <Link to="/pricing">Pricing</Link></Nav.Link>
                             </Nav>
                         </Offcanvas.Body>
                     </Offcanvas>
@@ -31,7 +32,7 @@ function Topnav() {
 
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
+                            <Nav.Link > <Link to = "/home">Home</Link> </Nav.Link>
                             <Dropdown>
                                 <Dropdown.Toggle variant="success" id="dropdown-basic" size="sm">
                                     Creator Studio
