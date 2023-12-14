@@ -2,11 +2,107 @@
   text-align: center;
 }
 
+.navbar-expand-lg .navbar-toggler {
+  display: block !important;
+  margin-right: 1%;
+  border: none;
+}
+
+#dropdown-basic {
+  margin-top: 3%;
+  margin-left: 450%;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  margin-left: 450%;
+}
+
+#navbarbutton {
+  padding: 0px 25px;
+  margin-left: 220%;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+.learndivs {
+  margin-top: 2%;
+  justify-content: space-evenly;
+  display: flex;
+}
+
+.learndivsbtn {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.writings {
+  display: flex;
+  justify-content: space-between;
+}
+
+.learndivsbtn button:hover {
+  transform: scale(1.1);  
+  transition: transform 0.3s ease;
+}
+
+.mustwatchdivs {
+  margin-top: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.mustwatchdivs>* {
+  width: calc(33.33% - 10px);
+  margin: 10px;
+}
+
+.Books {
+  margin-top: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.Books>* {
+  width: calc(20% - 20px);
+  margin: 10px;
+}
+
+
+.First {
+  width: 75%;
+}
+
+.Second {
+  width: 25%;
+}
+
+.must {
+  display: flex;
+}
+.multiline-ellipsis{
+  line-height: 23px;
+display: -webkit-box;
+-webkit-line-clamp: 6;
+-webkit-box-orient: vertical;
+overflow: hidden;
+word-break: break-word;
+}
+.communitybtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.communitydiv{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2%;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -32,7 +128,65 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+.Disc{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.lecturer{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10%;
+}
+.Books-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.books-div-link {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 0 8px;
+  text-decoration: none;
+  color: #333;
+  background-color: #f0f0f0; /* Light grey background color */
+  border: 1px solid #ccc;
+  border-radius: 14px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.books-div-link:hover {
+  background-color: #ccc; /* Darker grey on hover */
+}
+.books-details{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.book-card:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+.Lecdiv{
+  width: 90%;
+  margin: 0 auto;
+}
+.Lecbtn {
+  display: flex;
+  margin-bottom: 2%;
+}
+
+.Lecbtn > a {
+  background-color:rgba(66,133,244,.1);
+  color: #4285f4;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: small;
 }
