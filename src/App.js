@@ -6,12 +6,14 @@ import Ebooks from './pages/Ebooks';
 import Lecturerdetails from './pages/lecturerdetails';
 import Topnavbar from './components/Navbar'
 import Footer from './components/footer';
+import Login from './components/authentication/Login';
 
 function App() {
   return (
       <Router>
         <Topnavbar />
         <Routes>
+          <Route path={'/Login'} element={<Login />}/>
           <Route path={"/"} element={<HomePage />} />
           <Route path='/ebooks' element={<Ebooks/>}/>
           <Route path='/lecturer' element={<Lecturerdetails/>}/>
