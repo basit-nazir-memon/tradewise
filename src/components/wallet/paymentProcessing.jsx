@@ -26,8 +26,8 @@ const PaymentProcessing = () => {
     console.log("coins"+ coins);
     const ttlPrice = coins * purchaseInfo.coinRate;
     console.log("ttlPrice"+ ttlPrice);
-    setPurchaseInfo({ totalCoins: coins, totalPrice: ttlPrice });
-  }, [location.search, purchaseInfo.coinRate]);
+    setPurchaseInfo({ totalCoins: coins, totalPrice: ttlPrice, coinRate: 1 });
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
