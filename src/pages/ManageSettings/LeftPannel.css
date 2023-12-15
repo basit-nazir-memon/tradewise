@@ -1,0 +1,25 @@
+.tabs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.mainContainer{
+
+}
+.profilePic{
+    max-width: 400px;
+    max-height: 400px;
+}
+.profileSection{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+.NavItem{
+    /* margin-left: auto; */
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 200px;
+}

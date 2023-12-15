@@ -11,6 +11,7 @@ import Login from "./components/authentication/Login";
 import Wallet from "./components/wallet/wallet"; // Updated import
 import PaymentProcessing from "./components/wallet/paymentProcessing"; // Updated import
 import ManageWorks from './pages/ManageWorks/ManageWorks';
+import Setting from "./pages/ManageSettings/ManageSetting";
 
 function App() {
   const [totalCoins, setTotalCoins] = React.useState(0);
@@ -19,20 +20,12 @@ function App() {
     <Router>
       <Topnavbar />
       <Routes>
-        <Route
-          path={"/Login"}
-          element={<Login setTotalCoins={setTotalCoins} />}
-        />
+        <Route path={"/Login"} element={<Login setTotalCoins={setTotalCoins} />} />
         <Route path={"/"} element={<HomePage />} />
         <Route path="/ebooks" element={<Ebooks />} />
-        <Route
-          path="/wallet"
-          element={<Wallet setTotalCoins={setTotalCoins} />}
-        />
-        <Route
-          path="/payment_Processing"
-          element={<PaymentProcessing totalCoins={totalCoins} />}
-        />
+        <Route path="/wallet" element={<Wallet setTotalCoins={setTotalCoins} />} />
+        <Route path="/payment_Processing" element={<PaymentProcessing totalCoins={totalCoins} />} />
+        <Route path="/setting" element={<Setting totalCoins={totalCoins} />} />
         <Route path="/lecturer" element={<Lecturerdetails />} />
         <Route path='/manage/works' element={<ManageWorks/>}/>
       </Routes>
