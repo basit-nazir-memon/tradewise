@@ -1,0 +1,55 @@
+/* paymentProcessing.css */
+
+.payment-container {
+  /* max-width: 00px; */
+  margin: 50px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h3{
+    text-align: left;
+}
+.payment-heading {
+  color: #333;
+}
+
+.payment-form {
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+
+.payment-form label {
+  color: #555;
+}
+
+.payment-form button {
+  margin-top: 10px;
+}
+
+.payment-options {
+  margin-top: 10px;
+}
+
+.payment-option {
+  background-color: #007bff;
+  border-color: #007bff;
+  margin-right: 5px;
+}
+
+.payment-option:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #218838;
+}

@@ -1,0 +1,18 @@
+.NavLink {
+  margin-bottom: 10px;
+  style: none;
+  border-radius: 5px;
+  background-color: rgb(218, 203, 176);
+  margin: auto;
+  margin-bottom: 5px;
+  padding: 10px;
+  width:50%
+}
+.NavLinkTO{
+    style:none;
+    
+}
+
+.dropdown-divider{
+    margin-bottom: 10px;
+}

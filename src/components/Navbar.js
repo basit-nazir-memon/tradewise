@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Navbar.css"
 import {
   Navbar,
   Container,
@@ -24,25 +25,37 @@ function Topnav() {
             onHide={() => setShowOffcanvas(false)}
           >
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Menu</Offcanvas.Title>
+              {/* <Offcanvas.Title>Menu</Offcanvas.Title> */}
             </Offcanvas.Header>
-            <Offcanvas.Body>
+            <Offcanvas.Body className="OffcanvasBody">
               <hr
-                className="dropdown-divider"
+                className="-divider"dropdown
                 style={{ borderTop: "1px solid #e0e0e0" }}
               />
               <Nav className="flex-column">
-                <Nav.Link>
+                <Nav.Link className="NavLink">
                   {" "}
-                  <Link to="/home">Home</Link>{" "}
+                  <Link className="NavLinkTO" to="/home">
+                    Home
+                  </Link>{" "}
                 </Nav.Link>
-                <Nav.Link>
+                <Nav.Link className="NavLink">
                   {" "}
-                  <Link to="/features">Features</Link>
+                  <Link className="NavLinkTO" to="/features">
+                    Features
+                  </Link>
                 </Nav.Link>
-                <Nav.Link>
+                <Nav.Link className="NavLink">
                   {" "}
-                  <Link to="/pricing">Pricing</Link>
+                  <Link className="NavLinkTO" to="/pricing">
+                    Pricing
+                  </Link>
+                </Nav.Link>
+                <Nav.Link className="NavLink">
+                  {" "}
+                  <Link className="NavLinkTO" to="/wallet">
+                    Wallet
+                  </Link>
                 </Nav.Link>
               </Nav>
             </Offcanvas.Body>

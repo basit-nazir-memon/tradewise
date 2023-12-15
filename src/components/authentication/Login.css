@@ -15,7 +15,9 @@ form {
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
+.social-login{
+    margin-top: 10px;
+}
 h3 {
   text-align: center;
   color: #333;
