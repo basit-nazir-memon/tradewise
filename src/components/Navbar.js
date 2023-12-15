@@ -13,12 +13,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function Topnav() {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
-
   const handleOffcanvas = () => setShowOffcanvas((prev) => !prev);
 
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="lg" style={{borderBottom: "1px solid lightgray"}}>
         <Container>
           <Offcanvas
             show={showOffcanvas}

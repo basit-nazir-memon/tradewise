@@ -1,0 +1,31 @@
+.worksContainer{
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+#worksTabs>Tab{
+    background-color: aqua;
+    height: 100%;
+}
+
+
+.noContentFound{
+    margin-top: 10%;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.noContentFound>img{
+    width: 20%;
+    height: 20%;
+}
+
+.noContentFound>p{
+    color: gray;
+    margin-top: -10px;
+}
