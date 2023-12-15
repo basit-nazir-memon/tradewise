@@ -7,6 +7,7 @@ import Lecturerdetails from './pages/lecturerdetails';
 import Topnavbar from './components/Navbar'
 import Footer from './components/footer';
 import Login from './components/authentication/Login';
+import ManageWorks from './pages/ManageWorks/ManageWorks';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path={"/"} element={<HomePage />} />
           <Route path='/ebooks' element={<Ebooks/>}/>
           <Route path='/lecturer' element={<Lecturerdetails/>}/>
+          <Route path='/manage/works' element={<ManageWorks/>}/>
         </Routes>
         <Footer/>
       </Router>
