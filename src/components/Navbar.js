@@ -17,7 +17,11 @@ function Topnav() {
 
   return (
     <>
-      <Navbar bg="light" expand="lg" style={{borderBottom: "1px solid lightgray"}}>
+      <Navbar
+        bg="light"
+        expand="lg"
+        style={{ borderBottom: "1px solid lightgray" }}
+      >
         <Container>
           <Offcanvas
             show={showOffcanvas}
@@ -28,7 +32,8 @@ function Topnav() {
             </Offcanvas.Header>
             <Offcanvas.Body className="OffcanvasBody">
               <hr
-                className="-divider"dropdown
+                className="-divider"
+                dropdown
                 style={{ borderTop: "1px solid #e0e0e0" }}
               />
               <Nav className="flex-column">
@@ -68,8 +73,7 @@ function Topnav() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link>
-                {" "}
-                <Link to="/home">Home</Link>{" "}
+                <Link to="/home">Home</Link>
               </Nav.Link>
               <Dropdown>
                 <Dropdown.Toggle
@@ -98,12 +102,12 @@ function Topnav() {
               <Button
                 as={Link}
                 to="/login"
-                variant="outline-success"
                 id="navbarbutton"
                 size="sm"
+                className="centeredButton"
               >
                 Login
-              </Button>{" "}
+              </Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
