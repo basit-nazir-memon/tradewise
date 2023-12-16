@@ -11,8 +11,8 @@ function Must(){
                                 style={{
                                     textDecoration: 'none',
                                     marginRight: '7%',
-                                    fontSize: '24px', // Increased font size
-                                    color: 'Black', // Custom color (change to your desired color)
+                                    fontSize: '24px', 
+                                    color: 'Black', 
                                 }}
                                 onMouseEnter={(e) => e.target.style.color = 'Red'}
                                 onMouseLeave={(e) => e.target.style.color = 'Black'}
@@ -45,8 +45,8 @@ function Must(){
                                 style={{
                                     textDecoration: 'none',
                                     marginRight: '7%',
-                                    fontSize: '24px', // Increased font size
-                                    color: 'Black', // Custom color (change to your desired color)
+                                    fontSize: '24px', 
+                                    color: 'Black',
                                 }}
                                 onMouseEnter={(e) => e.target.style.color = 'Red'}
                                 onMouseLeave={(e) => e.target.style.color = 'Black'}
