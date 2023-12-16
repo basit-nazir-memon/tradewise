@@ -7,7 +7,7 @@ function Lecdiv({ imageUrl, title, description, works, subscribers, rating }) {
     return (
         <>
             <Card className="Lecdiv" style={{ marginBottom: '2%' }}>
-                <Card.Body className="">
+                <Card.Body>
                     <div style={{ marginBottom: '2%' }}>
                         <div style={{ display: 'flex' }}>
                             <Image src={imageUrl} alt="Image" roundedCircle style={{ width: '130px', height: '120px' }} />
