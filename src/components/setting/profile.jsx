@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaypal, faCcVisa, faCcMastercard } from "@fortawesome/free-brands-svg-icons";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons"; // Change the import
 import "./profile.css"
 
 const Profile = () => {
@@ -37,7 +37,7 @@ const Profile = () => {
         <p>{value}</p>
       )}
       <Button variant="primary" className="payment-option" onClick={onEdit}>
-        <FontAwesomeIcon icon={faPaypal} />
+        <FontAwesomeIcon icon={faPencilAlt} />
       </Button>
     </div>
   );
