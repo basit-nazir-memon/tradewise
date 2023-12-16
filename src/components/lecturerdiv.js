@@ -1,7 +1,6 @@
 
 import { Card, Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
 function Lecdiv({ imageUrl, title, description, works, subscribers, rating }) {
     const starCount = 5;
     const filledStar = '\u2605';
