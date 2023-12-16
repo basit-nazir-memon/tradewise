@@ -41,14 +41,14 @@ const Profile = () => {
       </Button>
     </div>
   );
-
   const EditButton = ({ onEdit }) => (
     <Button variant="secondary" onClick={onEdit}>Cancel Edit</Button>
   );
 
   const SaveButton = ({ onSave }) => (
-    <Button variant="success" onClick={onSave}>Save Changes</Button>
+    <Button variant="success" onClick={onSave} style={{ marginLeft: '10px' }}>Save Changes</Button>
   );
+
 
   return (
     <div className='personalInfo'>

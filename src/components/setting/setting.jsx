@@ -20,10 +20,10 @@ function Setting() {
                 <Tab eventKey="Profile" title="Profile">
                     <Profile/>
                 </Tab>
-                <Tab eventKey="PrivacySetting" title="Privacy Setting">
+                <Tab eventKey="PrivacySetting" title="Privacy Settings">
                     <PrivacySetting/>
                 </Tab>
-                <Tab eventKey="NotificationSetting" title="Notification Setting">
+                <Tab eventKey="NotificationSetting" title="Notification Settings">
                     <NotificationSetting/>
                 </Tab>
             </Tabs>

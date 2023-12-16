@@ -1,10 +1,9 @@
 .tabs{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
 }
 .mainContainer{
-
 }
 .profilePic{
     max-width: 400px;
@@ -17,9 +16,14 @@
     justify-content: space-around;
     text-align: center;
 }
-.NavItem{
-    /* margin-left: auto; */
-    margin-right: auto;
-    margin-bottom: 20px;
-    width: 200px;
+.NavItem {
+  width: 100%; /* Set the width to fill the container */
+  margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+/* Add the following rule to ensure that the NavLink stays within its container */
+.NavLink {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

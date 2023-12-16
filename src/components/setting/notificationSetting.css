@@ -1,0 +1,31 @@
+.notification-settings {
+  margin-top: 20px;
+}
+
+.notification-setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.notification-setting label {
+  margin-right: 10px;
+}
+
+.toggle-btn {
+  width: 40px;
+  height: 25px;
+}
+
+.toggle-btn .icon {
+  font-size: 14px;
+}
+
+.toggle-btn.success {
+  background-color: #28a745;
+}
+
+.toggle-btn.danger {
+  background-color: #dc3545;
+}
