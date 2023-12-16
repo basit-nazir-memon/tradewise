@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Image } from 'react-bootstrap';
+
 function BasicExample({ title, name, source }) {
   return (
     <Card style={{ width: '25%', height: '10%', }}>
