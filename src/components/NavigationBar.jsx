@@ -23,7 +23,7 @@ const NavigationBar = () => {
         <Navbar collapseOnSelect expand="md" className="bg-body-tertiary mb-3">
             <Container>
                 <Navbar.Brand>
-                    <Link className='remove-link-style' to='/' style={{textDecoration: 'none'}}>TradeWise</Link>
+                    <Link className='remove-link-style' to='/' style={{ textDecoration: 'none' }}>TradeWise</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -47,31 +47,31 @@ const NavigationBar = () => {
                     {
                         isLoggedIn ? (
                             <Nav>
-                                <NavDropdown 
-                                title={
-                                    <Image 
-                                    src="https://play-lh.googleusercontent.com/C9CAt9tZr8SSi4zKCxhQc9v4I6AOTqRmnLchsu1wVDQL0gsQ3fmbCVgQmOVM1zPru8UH=w240-h480-rw" 
-                                    roundedCircle 
-                                    style={{
-                                        width: '30px',
-                                        height: '30px'
-                                    }}
-                                    />
-                                } 
-                                id="collapsible-nav-dropdown">
-                                    {
-                                        role === 'admin' ? ( 
-                                        <>
-                                            <NavDropdown.Item>
-                                                <Link className='remove-link-style' to='/admin/users'>Manage Users</Link>
-                                            </NavDropdown.Item>
-                                            <NavDropdown.Item>
-                                                <Link className='remove-link-style' to='/admin/blogs'>Manage Posts</Link>
-                                            </NavDropdown.Item> 
-                                        </>):
-                                        ''
+                                <NavDropdown
+                                    title={
+                                        <Image
+                                            src="https://play-lh.googleusercontent.com/C9CAt9tZr8SSi4zKCxhQc9v4I6AOTqRmnLchsu1wVDQL0gsQ3fmbCVgQmOVM1zPru8UH=w240-h480-rw"
+                                            roundedCircle
+                                            style={{
+                                                width: '30px',
+                                                height: '30px'
+                                            }}
+                                        />
                                     }
-                                    
+                                    id="collapsible-nav-dropdown">
+                                    {
+                                        role === 'admin' ? (
+                                            <>
+                                                <NavDropdown.Item>
+                                                    <Link className='remove-link-style' to='/admin/users'>Manage Users</Link>
+                                                </NavDropdown.Item>
+                                                <NavDropdown.Item>
+                                                    <Link className='remove-link-style' to='/admin/blogs'>Manage Posts</Link>
+                                                </NavDropdown.Item>
+                                            </>) :
+                                            ''
+                                    }
+
                                     <NavDropdown.Item>
                                         <Link className='remove-link-style' to='/profile'>Profile</Link>
                                     </NavDropdown.Item>
@@ -91,17 +91,17 @@ const NavigationBar = () => {
                                 </NavDropdown>
                             </Nav>
                         ) : (
-                        <Nav>
-                            
-                            <Link className='remove-link-style' to='/register'>
-                                <Button className='m-1' variant="outline-success">Register
-                                </Button>
-                            </Link>
-                            
-                            <Link className='remove-link-style' to='/login'>
-                                <Button className='m-1'variant="outline-primary">Login</Button>
-                            </Link>
-                        </Nav>
+                            <Nav>
+
+                                <Link className='remove-link-style' to='/register'>
+                                    <Button className='m-1' variant="outline-success">Register
+                                    </Button>
+                                </Link>
+
+                                <Link className='remove-link-style' to='/login'>
+                                    <Button className='m-1' variant="outline-primary">Login</Button>
+                                </Link>
+                            </Nav>
                         )
                     }
                 </Navbar.Collapse>
