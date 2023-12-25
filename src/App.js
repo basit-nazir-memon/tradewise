@@ -32,7 +32,11 @@ function App() {
         <Route path="/payment_Processing" element={<PaymentProcessing totalCoins={totalCoins} />} />
         <Route path="/settings" element={<Setting totalCoins={totalCoins} />} />
         <Route path="/lecturers" element={<Lecturerdetails />} />
-        <Route path='/manage/works' element={<ManageWorks/>}/>
+        <Route path='/manage/works' element={<ManageWorks type={"works"}/>}/>
+        <Route path='/upload/video' element={<ManageWorks type={"uploadVideo"}/>}/>
+        <Route path='/upload/video/live' element={<ManageWorks type={"uploadLive"}/>}/>
+        <Route path='/upload/ebook' element={<ManageWorks type={"uploadEbook"}/>}/>
+
       </Routes>
       <Footer />
     </Router>

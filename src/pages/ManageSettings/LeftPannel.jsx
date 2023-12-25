@@ -11,33 +11,33 @@ const LeftPannel = () => {
   return (
     <Container fluid className="mainContainer">
         <Row className="profileRow">
-        <Col sm={4} className="profileSection">
-          <Image src={profilePic} className="profilePic rounded-circle" alt="Profile Picture" />
-          <h3 className="userName text-nowrap">{userName}</h3>
-          <span className="userType text-nowrap">{userType}</span>
-          <Button variant="primary" size="sm" className="topUpButton">
-            Top Up
-          </Button>
-          <p className="coinsBalance text-nowrap">My Coins: {coins}</p>
-        </Col>
-        <div className="tabSection">
-          <Nav variant="tabs" defaultActiveKey="myCoins" className='tabs'>
-            <NavItem className='NavItem'>
-              <NavLink href="#" active={true}>
-                My Coins
-              </NavLink>
-            </NavItem>
-            <NavItem className='NavItem'>
-              <NavLink href="#">My Orders</NavLink>
-            </NavItem>
-            <NavItem className='NavItem'>
-              <NavLink href="#">Notifications</NavLink>
-            </NavItem>
-            <NavItem className='NavItem'>
-              <NavLink href="#">Settings</NavLink>
-            </NavItem>
-          </Nav>
-        </div>
+          <Col sm={4} className="profileSection">
+            <Image src={profilePic} className="profilePic rounded-circle" alt="Profile Picture" />
+            <h3 className="userName text-nowrap">{userName}</h3>
+            <span className="userType text-nowrap">{userType}</span>
+            <Button variant="primary" size="sm" className="topUpButton">
+              Top Up
+            </Button>
+            <p className="coinsBalance text-nowrap">My Coins: {coins}</p>
+          </Col>
+          <div className="tabSection">
+            <Nav variant="tabs" defaultActiveKey="myCoins" className='tabs'>
+              <NavItem className='NavItem'>
+                <NavLink href="#" active={true}>
+                  My Coins
+                </NavLink>
+              </NavItem>
+              <NavItem className='NavItem'>
+                <NavLink href="#">My Orders</NavLink>
+              </NavItem>
+              <NavItem className='NavItem'>
+                <NavLink href="#">Notifications</NavLink>
+              </NavItem>
+              <NavItem className='NavItem'>
+                <NavLink href="#">Settings</NavLink>
+              </NavItem>
+            </Nav>
+          </div>
       </Row>
     </Container>
   );

@@ -1,6 +1,7 @@
 import Carousel from 'react-bootstrap/Carousel';
 
 function DarkVariantExample() {
+
     return (
 
         <div style={{ maxWidth: '100%', maxHeight: '50%' }}>

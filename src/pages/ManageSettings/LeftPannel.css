@@ -5,6 +5,9 @@
 }
 .mainContainer{
 }
+
+
+
 .profilePic{
     max-width: 400px;
     max-height: 400px;
@@ -17,7 +20,7 @@
     text-align: center;
 }
 .NavItem {
-  width: 100%; /* Set the width to fill the container */
+  width: 100%;
   margin-bottom: 10px; /* Adjust margin as needed */
 }
 
