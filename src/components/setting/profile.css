@@ -1,0 +1,48 @@
+/* profile.css */
+
+.personalInfo {
+  /* max-width: 400px; */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  margin-bottom: 15px;
+}
+
+.info label {
+  font-weight: bold;
+}
+
+.info p {
+  margin: 0;
+}
+
+button {
+  /* background-color: #4caf50; */
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.editandsavebuttons{
+}
+.editbutton{
+    margin-right: 10px;
+}
+.savebutton{
+
+    margin-right: 10px;
+}
+button:hover {
+  /* background-color: #45a082; */
+}

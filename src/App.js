@@ -10,7 +10,7 @@ import Footer from "./components/footer";
 import Login from "./components/authentication/Login";
 import Wallet from "./components/wallet/wallet"; // Updated import
 import PaymentProcessing from "./components/wallet/paymentProcessing"; // Updated import
-import ManageWorks from './pages/ManageWorks/ManageWorks';
+import ManageWorks from "./pages/ManageWorks/ManageWorks";
 import Setting from "./pages/ManageSettings/ManageSetting";
 import NavigationBar from "./components/NavigationBar";
 
@@ -22,7 +22,10 @@ function App() {
       {/* <Topnavbar /> */}
       <NavigationBar/>
       <Routes>
-        <Route path={"/Login"} element={<Login setTotalCoins={setTotalCoins} />} />
+        <Route
+          path={"/Login"}
+          element={<Login setTotalCoins={setTotalCoins} />}
+        />
         <Route path={"/"} element={<HomePage />} />
         <Route path="/ebooks" element={<Ebooks />} />
         <Route path="/wallet" element={<Wallet setTotalCoins={setTotalCoins} />} />

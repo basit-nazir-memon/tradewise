@@ -6,12 +6,6 @@ import Profile from "./profile";
 import PrivacySetting from "./privacySetting";
 import NotificationSetting from "./notificationSetting";
 
-// import WorksLive from './worksLive';
-// import WorksVideos from './worksVideos';
-// import WorksEbooks from './worksEbooks';
-// import WorksQuestion from './worksQuestion';
-// import WorksAnswer from './worksAnswer';
-
 function Setting() {
     const [key, setKey] = useState('live');
 
@@ -26,10 +20,10 @@ function Setting() {
                 <Tab eventKey="Profile" title="Profile">
                     <Profile/>
                 </Tab>
-                <Tab eventKey="PrivacySetting" title="Privacy Setting">
+                <Tab eventKey="PrivacySetting" title="Privacy Settings">
                     <PrivacySetting/>
                 </Tab>
-                <Tab eventKey="NotificationSetting" title="Notification Setting">
+                <Tab eventKey="NotificationSetting" title="Notification Settings">
                     <NotificationSetting/>
                 </Tab>
             </Tabs>
