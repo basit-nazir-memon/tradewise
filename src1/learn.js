@@ -21,16 +21,16 @@ function WithHeaderExample({ header, title, text, color }) {
                 </Button>
                 <Button
                     variant="success"
-                    onMouseEnter={(e) => (e.target.style.transform = 'scale(1.05)')} 
-                    onMouseLeave={(e) => (e.target.style.transform = 'scale(1)')} 
+                    onMouseEnter={(e) => (e.target.style.transform = 'scale(1.05)')} // Scale the button on hover
+                    onMouseLeave={(e) => (e.target.style.transform = 'scale(1)')} // Revert scale on hover out
                     style={{ marginRight: '3%' ,marginTop:'1%'}} 
                 >
                     Intermediate
                 </Button>
                 <Button
                     variant="danger"
-                    onMouseEnter={(e) => (e.target.style.transform = 'scale(1.05)')} 
-                    onMouseLeave={(e) => (e.target.style.transform = 'scale(1)')}
+                    onMouseEnter={(e) => (e.target.style.transform = 'scale(1.05)')} // Scale the button on hover
+                    onMouseLeave={(e) => (e.target.style.transform = 'scale(1)')} // Revert scale on hover out
                     style={{ marginTop:'2%'}} 
                 >
                     Advanced

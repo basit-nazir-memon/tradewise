@@ -39,7 +39,6 @@ function ImageDescription({ imageSrc, name, description }) {
       </Card.Body>
     </Card>
   );
-
 }
 
 export default ImageDescription;

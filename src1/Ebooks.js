@@ -1,62 +1,16 @@
-import Header from '../components/header';
+import './App.css';
+import Header from './header';
 import { useState } from 'react';
 import { Navbar, Container, Nav, Offcanvas, Button, Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Bookdetails from './bookdetails';
 import { Link } from 'react-router-dom';
-import Footer from '../components/footer';
-import Lecdiv from '../components/lecturerdiv';
-
-function Lecturerdetails() {
-    const content = [
-        {
-            imageUrl: "https://images.pexels.com/photos/2088169/pexels-photo-2088169.jpeg?auto=compress&cs=tinysrgb&w=800",
-            title: "Trading Live",
-            description: "Description of goes here.",
-            works: "29",
-            subscribers: "2.7M",
-            rating: '9.9'
-        },
-        {
-            imageUrl: "https://images.pexels.com/photos/593227/pexels-photo-593227.jpeg?auto=compress&cs=tinysrgb&w=800",
-            title: "Fast Bull",
-            description: "Description of goes here.",
-            works: "19",
-            subscribers: "2.1M",
-            rating: '9.4'
-        }
-    ]
-    let renderitems;
-    if (content.length == 0) {
-        renderitems = <h2>No Content Available</h2>
-    } else {
-        renderitems = content.map((Item) => (
-            <Lecdiv
-                imageUrl={Item.imageUrl}
-                title={Item.title}
-                description={Item.description}
-                works={Item.works}
-                subscribers={Item.subscribers}
-                rating={Item.rating}
-            />
-        ))
-    }
+import Footer from './footer';
+function Ebooks() {
     const [showOffcanvas, setShowOffcanvas] = useState(false);
 
     const handleOffcanvas = () => setShowOffcanvas((prev) => !prev);
-    const btnarray = [
-        {
-            name: 'Latest',
-            path: '/Latest'
-        },
-        {
-            name: 'Education',
-            path: '/Education'
-        },
-        {
-            name: 'All',
-            path: '/All'
-        },
-    ]
+
     return (
         <>
             <Navbar bg="light" expand="lg">
@@ -99,15 +53,46 @@ function Lecturerdetails() {
             </Navbar>
             <Header />
             <div className='Books-div'>
-                {btnarray.map((item) => (
-                    <Link className="books-div-link" path={item.path}>{item.name}</Link>
-                ))}
+                <Link className="books-div-link">Featured</Link>
+                <Link className="books-div-link">Latest</Link>
+                <Link className="books-div-link">Education</Link>
             </div>
-            <div>
-                {renderitems}
+            <div className='books-details'>
+            <Bookdetails
+                bookImageUrl="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                bookDescription="Description of the book goes here goes and explains nsjdbuigdfwgeu"
+                writerImageUrl="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                writerName="Writer's Name"
+            />
+            <Bookdetails
+                bookImageUrl="https://images.pexels.com/photos/3747506/pexels-photo-3747506.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                bookDescription="Description of the book goes here goes and explains nsjdbuigdfwgeu"
+                writerImageUrl="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                writerName="Writer's Name"
+            />
+            <Bookdetails
+                bookImageUrl="https://images.pexels.com/photos/3747497/pexels-photo-3747497.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                bookDescription="Description of the book goes here goes and explains nsjdbuigdfwgeu"
+                writerImageUrl="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                writerName="Writer's Name"
+            />
+            <Bookdetails
+                bookImageUrl="https://images.pexels.com/photos/4238505/pexels-photo-4238505.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                bookDescription="Description of the book goes here goes and explains nsjdbuigdfwgeu"
+                writerImageUrl="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                writerName="Writer's Name"
+            />
+            <Bookdetails
+                bookImageUrl="https://images.pexels.com/photos/6373409/pexels-photo-6373409.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                bookDescription="Description of the book goes here goes and explains nsjdbuigdfwgeu"
+                writerImageUrl="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                writerName="Writer's Name"
+            />
             </div>
-            <Footer />
+            <Footer/>
         </>
-    )
+    );
 }
-export default Lecturerdetails;
+
+
+export default Ebooks;

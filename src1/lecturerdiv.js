@@ -1,13 +1,14 @@
 
 import { Card, Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
 function Lecdiv({ imageUrl, title, description, works, subscribers, rating }) {
     const starCount = 5;
     const filledStar = '\u2605';
     return (
         <>
             <Card className="Lecdiv" style={{ marginBottom: '2%' }}>
-                <Card.Body>
+                <Card.Body className="">
                     <div style={{ marginBottom: '2%' }}>
                         <div style={{ display: 'flex' }}>
                             <Image src={imageUrl} alt="Image" roundedCircle style={{ width: '130px', height: '120px' }} />

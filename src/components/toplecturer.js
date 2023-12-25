@@ -1,6 +1,51 @@
 import { Link } from 'react-router-dom';
 import ImageDescription from './lecturer';
 function Toplec() {
+    const content=[
+        {
+            imageSrc:"https://images.pexels.com/photos/2448749/pexels-photo-2448749.jpeg?auto=compress&cs=tinysrgb&w=800",
+            name:"John Doe",
+            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            imageSrc:"https://images.pexels.com/photos/2448749/pexels-photo-2448749.jpeg?auto=compress&cs=tinysrgb&w=800",
+            name:"John Doe",
+            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            imageSrc:"https://images.pexels.com/photos/2448749/pexels-photo-2448749.jpeg?auto=compress&cs=tinysrgb&w=800",
+            name:"John Doe",
+            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            imageSrc:"https://images.pexels.com/photos/2448749/pexels-photo-2448749.jpeg?auto=compress&cs=tinysrgb&w=800",
+            name:"John Doe",
+            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            imageSrc:"https://images.pexels.com/photos/2448749/pexels-photo-2448749.jpeg?auto=compress&cs=tinysrgb&w=800",
+            name:"John Doe",
+            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            imageSrc:"https://images.pexels.com/photos/2448749/pexels-photo-2448749.jpeg?auto=compress&cs=tinysrgb&w=800",
+            name:"John Doe",
+            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+    ]
+    let renderitems;
+    if(content.length==0){
+        renderitems=<h2>No Lecturers Available</h2>
+    }else{
+        const itemsToRender = content.slice(0, Math.min(content.length, 4));
+        renderitems=itemsToRender.map((item)=>(
+            <ImageDescription
+            imageSrc={item.imageSrc}
+            name={item.name}
+            description={item.description}
+            />
+        ));
+    }
     return (
         <div className='must'>
             <div className='discover'>
@@ -21,26 +66,7 @@ function Toplec() {
                     </Link>
                 </div>
                 <div className='lecturer'>
-                    <ImageDescription
-                        imageSrc="https://images.pexels.com/photos/2448749/pexels-photo-2448749.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        name="John Doe"
-                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                    />
-                    <ImageDescription
-                        imageSrc="https://images.pexels.com/photos/2448749/pexels-photo-2448749.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        name="John Doe"
-                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                    />
-                    <ImageDescription
-                        imageSrc="https://images.pexels.com/photos/2448749/pexels-photo-2448749.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        name="John Doe"
-                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                    />
-                    <ImageDescription
-                        imageSrc="https://images.pexels.com/photos/2448749/pexels-photo-2448749.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        name="John Doe"
-                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                    />
+                   {renderitems}
                 </div>
             </div>
         </div>

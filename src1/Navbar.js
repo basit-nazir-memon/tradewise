@@ -1,67 +1,29 @@
-import Header from '../components/header';
+import './App.css';
+import Header from './header';
+import Learn from './learn';
 import { useState } from 'react';
 import { Navbar, Container, Nav, Offcanvas, Button, Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
-import Footer from '../components/footer';
-import Lecdiv from '../components/lecturerdiv';
+import Must from './must';
+import Video from './video';
+import Books from './books';
+import Community from './comm';
+import Disc from './discover';
+import Toplec from './toplecturer';
+import Footer from './footer';
 
-function Lecturerdetails() {
-    const content = [
-        {
-            imageUrl: "https://images.pexels.com/photos/2088169/pexels-photo-2088169.jpeg?auto=compress&cs=tinysrgb&w=800",
-            title: "Trading Live",
-            description: "Description of goes here.",
-            works: "29",
-            subscribers: "2.7M",
-            rating: '9.9'
-        },
-        {
-            imageUrl: "https://images.pexels.com/photos/593227/pexels-photo-593227.jpeg?auto=compress&cs=tinysrgb&w=800",
-            title: "Fast Bull",
-            description: "Description of goes here.",
-            works: "19",
-            subscribers: "2.1M",
-            rating: '9.4'
-        }
-    ]
-    let renderitems;
-    if (content.length == 0) {
-        renderitems = <h2>No Content Available</h2>
-    } else {
-        renderitems = content.map((Item) => (
-            <Lecdiv
-                imageUrl={Item.imageUrl}
-                title={Item.title}
-                description={Item.description}
-                works={Item.works}
-                subscribers={Item.subscribers}
-                rating={Item.rating}
-            />
-        ))
-    }
+
+function Topnav() {
     const [showOffcanvas, setShowOffcanvas] = useState(false);
 
     const handleOffcanvas = () => setShowOffcanvas((prev) => !prev);
-    const btnarray = [
-        {
-            name: 'Latest',
-            path: '/Latest'
-        },
-        {
-            name: 'Education',
-            path: '/Education'
-        },
-        {
-            name: 'All',
-            path: '/All'
-        },
-    ]
+
     return (
         <>
             <Navbar bg="light" expand="lg">
                 <Container>
                     <Offcanvas show={showOffcanvas} onHide={() => setShowOffcanvas(false)}>
+
                         <Offcanvas.Header closeButton>
                             <Offcanvas.Title>Menu</Offcanvas.Title>
                         </Offcanvas.Header>
@@ -97,17 +59,43 @@ function Lecturerdetails() {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            <Header />
-            <div className='Books-div'>
-                {btnarray.map((item) => (
-                    <Link className="books-div-link" path={item.path}>{item.name}</Link>
-                ))}
-            </div>
-            <div>
-                {renderitems}
-            </div>
-            <Footer />
+            <Header /><br />
+            <a
+                href="YOUR_LINK_URL_HERE"
+                style={{
+                    textDecoration: 'none',
+                    marginLeft: '7%',
+                    fontSize: '24px', 
+                    color: 'Black', 
+                }}
+                onMouseEnter={(e) => e.target.style.color = 'Red'}
+                onMouseLeave={(e) => e.target.style.color = 'Black'}
+            >
+                Learn Forex with Dr. Lambeau &gt;
+            </a>
+            <div className='learndivs'>
+                <Learn
+                    color='#FF0000'
+                    header="Videos"
+                    title="Best Forex Video Course-100 lessons from novice to master trader"
+                    text="1M Completed"
+                />
+                <Learn
+                    color='#FDDA0D'
+                    header="E-books"
+                    title="Best Forex E-book Collection-34 series from novice to master trader"
+                    text="1.1M Completed"
+                />
+            </div><br /><br />
+            <Must/><br /><br />
+            <Video/><br /><br />
+            <Books/>
+            <Community/>
+            <Disc />
+            <Toplec/>
+            <Footer/>
         </>
-    )
+    );
 }
-export default Lecturerdetails;
+
+export default Topnav;

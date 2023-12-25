@@ -2,8 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Image } from 'react-bootstrap';
-
-function BasicExample({ title, name, source,imagesrc }) {
+function BasicExample({ title, name, source }) {
   return (
     <Card style={{ width: '25%', height: '10%', }}>
       <Card.Img
@@ -23,7 +22,7 @@ function BasicExample({ title, name, source,imagesrc }) {
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', marginRight: '10px' }}>
             <Image
-              src={imagesrc}
+              src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
               roundedCircle
               style={{ width: '30px', height: '30px' }}
               alt="Profile Image"
