@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Image } from 'react-bootstrap';
 
-function BasicExample({ title, name, source, imagesrc }) {
+function BasicExample({ title, name, source,imagesrc }) {
   return (
     <Card style={{ width: '25%', height: '10%', }}>
       <Card.Img
