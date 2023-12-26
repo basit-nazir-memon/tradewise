@@ -8,8 +8,8 @@ import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
-    // const isLoggedIn = localStorage.getItem('token');
-    const isLoggedIn = true;
+    const isLoggedIn = localStorage.getItem('token');
+    // const isLoggedIn = true;
     const role = localStorage.getItem('role');
 
     const handleLogOut = () => {

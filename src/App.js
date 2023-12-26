@@ -13,6 +13,7 @@ import PaymentProcessing from "./components/wallet/paymentProcessing"; // Update
 import ManageWorks from "./pages/ManageWorks/ManageWorks";
 import Setting from "./pages/ManageSettings/ManageSetting";
 import NavigationBar from "./components/NavigationBar";
+import UserRoute from "./Guards/UserGuard";
 
 function App() {
   const [totalCoins, setTotalCoins] = React.useState(0);
@@ -28,14 +29,14 @@ function App() {
         />
         <Route path={"/"} element={<HomePage />} />
         <Route path="/ebooks" element={<Ebooks />} />
-        <Route path="/wallet" element={<Wallet setTotalCoins={setTotalCoins} />} />
-        <Route path="/payment_Processing" element={<PaymentProcessing totalCoins={totalCoins} />} />
-        <Route path="/settings" element={<Setting totalCoins={totalCoins} />} />
+        <Route path="/wallet" element={<UserRoute><Wallet setTotalCoins={setTotalCoins} /></UserRoute>} />
+        <Route path="/payment_Processing" element={<UserRoute><PaymentProcessing totalCoins={totalCoins} /></UserRoute>} />
+        <Route path="/settings" element={<UserRoute><Setting totalCoins={totalCoins} /></UserRoute>} />
         <Route path="/lecturers" element={<Lecturerdetails />} />
-        <Route path='/manage/works' element={<ManageWorks type={"works"}/>}/>
-        <Route path='/upload/video' element={<ManageWorks type={"uploadVideo"}/>}/>
-        <Route path='/upload/video/live' element={<ManageWorks type={"uploadLive"}/>}/>
-        <Route path='/upload/ebook' element={<ManageWorks type={"uploadEbook"}/>}/>
+        <Route path='/manage/works' element={<UserRoute><ManageWorks type={"works"}/></UserRoute> }/>
+        <Route path='/upload/video' element={<UserRoute><ManageWorks type={"uploadVideo"}/></UserRoute> }/>
+        <Route path='/upload/video/live' element={<UserRoute><ManageWorks type={"uploadLive"}/></UserRoute> }/>
+        <Route path='/upload/ebook' element={<UserRoute><ManageWorks type={"uploadEbook"}/></UserRoute> }/>
 
       </Routes>
       <Footer />
