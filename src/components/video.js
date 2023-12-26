@@ -31,20 +31,20 @@ function Video(){
     ]
     const contents = [
         {
-          name: 'Content 1',
-          description: 'Description for Content 1',
+            name: 'Content 1',
+            description: 'Description for Content 1',
         },
         {
-          name: 'Content 2',
-          description: 'Description for Content 2',
+            name: 'Content 2',
+            description: 'Description for Content 2',
         },
         {
-          name: 'Content 3',
-          description: 'Description for Content 3',
+            name: 'Content 3',
+            description: 'Description for Content 3',
         },
         {
-          name: 'Content 4',
-          description: 'Description for Content 4',
+            name: 'Content 4',
+            description: 'Description for Content 4',
         },
         {
           name: 'Content 5',
