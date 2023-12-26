@@ -11,7 +11,6 @@ import "./NavigationBar.css";
 
 const NavigationBar = () => {
     const isLoggedIn = localStorage.getItem('token');
-    // const isLoggedIn = true;
     const role = localStorage.getItem('role');
 
     const handleLogOut = () => {
@@ -56,7 +55,8 @@ const NavigationBar = () => {
                                     roundedCircle 
                                     style={{
                                         width: '30px',
-                                        height: '30px'
+                                        height: '30px',
+                                        backgroundColor: 'white'
                                     }}
                                     />
                                 } 

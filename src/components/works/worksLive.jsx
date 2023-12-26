@@ -1,100 +1,35 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import VideoComponent from '../videoComponent';
 import { Col, Container, Row } from 'react-bootstrap';
+import axios from 'axios';
 
 const WorksLive = () => {
-    const [videos, setVideos] = useState([
-        {
-            title: "Video Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Live",
-            views: 1234564
-        },
-        {
-            title: "Video Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Live",
-            views: 1234564
-        },
-        {
-            title: "Video Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Live",
-            views: 1234564
-        },
-        {
-            title: "Video Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Live",
-            views: 1234564
-        },
-        {
-            title: "Video Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Live",
-            views: 1234564
-        },
-        {
-            title: "Video Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Live",
-            views: 1234564
-        },
-        {
-            title: "Video Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Live",
-            views: 1234564
-        },
-        {
-            title: "Video Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Live",
-            views: 1234564
-        },
-        {
-            title: "Video Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Live",
-            views: 1234564
-        },
-        {
-            title: "Video Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Live",
-            views: 1234564
-        },
-    ]); 
+    const [videos, setVideos] = useState([]); 
+
+    useEffect(() => {
+        const fetchBlogsData = async () => {
+            try {
+                const token = localStorage.getItem('token');
+
+                if (token) {
+                    const response = await axios.get('http://localhost:5000/works/videos/mine?type=live', {
+                        headers: {
+                        Authorization: `Bearer ${token}`,
+                        },
+                    });
+                    if (response.data){
+                        setVideos(response.data);
+                    }
+                } else {
+                    console.log('Token not found.');
+                }
+            } catch (error) {
+                console.error('Error fetching blogs:', error);
+            }
+        };
+        fetchBlogsData();
+    }, []);
+
 
     return (
         <Container className='mt-3'>
