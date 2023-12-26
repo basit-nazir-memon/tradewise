@@ -10,8 +10,8 @@ import "./NavigationBar.css";
  
 
 const NavigationBar = () => {
-    // const isLoggedIn = localStorage.getItem('token');
-    const isLoggedIn = true;
+    const isLoggedIn = localStorage.getItem('token');
+    // const isLoggedIn = true;
     const role = localStorage.getItem('role');
 
     const handleLogOut = () => {

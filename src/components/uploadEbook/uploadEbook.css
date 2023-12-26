@@ -1,0 +1,27 @@
+/* .videoUploadContainer{
+    width: 70%;
+    margin-left: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(248, 248, 248, 0.94);
+    border-radius: 10px;
+    border-style: dashed;
+    border-color: lightgray;
+    padding: 20px 0;
+    border-width: 2px;
+}
+
+.videoUploadContainer>h5{
+    margin-top: 5px;
+}
+
+.videoUploadContainer>p{
+    font-size: 13px;
+    color: gray;
+}
+
+.videoUploadContainer>Button{
+    background-color: tomato;
+} */
