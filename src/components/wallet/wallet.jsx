@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./wallet.css";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
@@ -7,11 +7,33 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Wallet = () => {
   const [coins, setCoins] = useState(100); // Initial number of coins
   const [rechargeAmount, setRechargeAmount] = useState(20); // Default recharge amount
+  const [currentBalance, setCurrentBalance] = useState(null);
   const coinRate = 1; // Set your default coin rate
 
+  useEffect(() => {
+    const fetchBalance = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/account/balance", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch balance");
+        }
+
+        const data = await response.json();
+        setCurrentBalance(data.currentBalance);
+      } catch (error) {
+        console.error("Error fetching balance:", error);
+      }
+    };
+
+    fetchBalance();
+  }, []);
 
   const handleRecharge = (amount) => {
-    // You can perform additional logic here, e.g., initiate a payment
     setRechargeAmount(amount);
     console.log(`Recharging ${amount} coins`);
   };
@@ -19,7 +41,7 @@ const Wallet = () => {
   return (
     <Container className="box">
       <h2>Your Wallet</h2>
-      <p>Current Balance: {coins} coins</p>
+      <p>Current Balance: {currentBalance !== null ? `${currentBalance} coins` : "Loading..."}</p>
 
       <Row className="mb-3">
         <Col>
@@ -28,7 +50,7 @@ const Wallet = () => {
       </Row>
 
       <Row>
-        {[20, 50, 70, 90, 180 , 360, 500].map((amount) => (
+        {[20, 50, 70, 90, 180, 360, 500].map((amount) => (
           <Col key={amount} className="mb-2">
             <Button variant="primary" onClick={() => handleRecharge(amount)}>
               {`${amount} coins`}

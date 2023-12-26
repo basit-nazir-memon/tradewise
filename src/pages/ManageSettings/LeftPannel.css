@@ -1,9 +1,9 @@
-.tabs{
+.profileRow{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.mainContainer{
+    align-content: center;
+    justify-content: space-between;
 }
 
 
@@ -14,6 +14,7 @@
 }
 .profileRow{
     width: 100%;
+
 }
 .topUpButton{
     width: 100px;

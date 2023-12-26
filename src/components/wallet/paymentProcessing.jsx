@@ -16,26 +16,50 @@ const PaymentProcessing = () => {
 
   const [purchaseInfo, setPurchaseInfo] = useState({
     totalCoins: 0,
-    coinRate: 1, // Assume the rate is $1 per coin
+    coinRate: 1,
     totalPrice: 0,
   });
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const coins = parseInt(searchParams.get("coins")) || 0;
-    console.log("coins"+ coins);
     const ttlPrice = coins * purchaseInfo.coinRate;
-    console.log("ttlPrice"+ ttlPrice);
     setPurchaseInfo({ totalCoins: coins, totalPrice: ttlPrice, coinRate: 1 });
-  }, []);
+  }, [location.search]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setAccountInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
   };
-
-  const handlePayment = () => {
-    console.log("Payment successful!");
+  const handlePayment = async () => {
+    try {
+      const userId = localStorage.getItem('id');
+      const token = localStorage.getItem('token');
+      console.log("token : "+token);
+      const response = await fetch("http://localhost:5000/account/recharge", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, 
+        },
+        body: JSON.stringify({
+          userId,
+          cardNumber: accountInfo.cardNumber,
+          expirationDate: accountInfo.expirationDate,
+          cvv: accountInfo.cvv,
+          rechargeAmount: purchaseInfo.totalPrice,
+        }),
+      });
+  
+      if (!response.ok) {
+        window.alert("Payment Failed")
+        throw new Error("Payment failed");
+      }
+  
+      window.alert("Payment completed");
+    } catch (error) {
+      console.error("Error processing payment:", error);
+    }
   };
 
   return (
@@ -54,7 +78,7 @@ const PaymentProcessing = () => {
       </Row>
       <Row>
         <Col xs={12} md={8}>
-          <h2 className="payment-heading">Payment Processing</h2>
+          <h2 className="payment-heading">Account Details</h2>
 
           <Form className="payment-form">
             <Form.Group controlId="cardNumber">
