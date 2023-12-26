@@ -40,7 +40,7 @@ const UploadVideo = () => {
                         <>
                             <Image 
                                 src='https://wumardan.edu.pk/wp-content/plugins/elementor1/assets/images/placeholder.png'
-                                rounded
+                                rounded 
                                 width={100} 
                             />
                             <h5>Upload your recorded video</h5>
@@ -62,7 +62,7 @@ const UploadVideo = () => {
                     <p>By uploading videos, you agree to our <Link className='remove-link-style'>User Agreement</Link> and <Link className='remove-link-style'>Community Guidelines</Link></p>
                 }
             </div>
-            <Form noValidate validated={validated} onSubmit={handleSubmit} style={{maxWidth: '70%'}}>
+            <Form noValidate validated={validated} onSubmit={handleSubmit} className='videoUploadForm'>
                 <Row>
                     <h4>Video Details</h4>
                 </Row>
@@ -107,7 +107,7 @@ const UploadVideo = () => {
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Row>
-                <Btn type="submit" className='mt-3' variant='outline-primary' style={{width: '200px'}}>Submit form</Btn>
+                <Btn type="submit" className='mt-3' variant='outline-primary' style={{width: '200px', alignSelf: 'center'}}>Publish Video</Btn>
             </Form>
 
 

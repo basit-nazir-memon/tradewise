@@ -36,3 +36,29 @@
     width: 100%;
     text-align: left;
 }
+
+@media (max-width: 720px){
+    .mainContainer{
+        flex-direction: column;
+    }
+
+    .mainContainerLeft{
+        display: flex;
+    }
+
+    .leftAccordion{
+        display: flex;
+    }
+
+    .iconImage{
+        display: none;
+    }
+
+    .mainContainerRight{
+        width: 100%;
+    }
+
+    .mainContainerLeft{
+        width: 100%;
+    }
+}

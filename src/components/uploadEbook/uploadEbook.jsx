@@ -149,7 +149,7 @@ const UploadEbook = () => {
                         <Input value={selectedChapterTitle} onChange={handleChapterTitleChange}/>
                     </Form.Item>
                     <Form.Item label="Contents">
-                        <TextArea rows={10} value={contents[selected].content} onChange={handleChapterContentChange}/>
+                        <TextArea rows={10} value={selectedChapterContent} onChange={handleChapterContentChange}/>
                     </Form.Item>
                 </Col>
                 <Col md={3} xs={12} className='shadow' style={{border: '1px solid lightgray', padding: '10px 15px'}}>

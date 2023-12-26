@@ -13,29 +13,27 @@ import { Link } from 'react-router-dom';
 
 
 const ManageWorks = ({type}) => {
-    const {name} = useParams();
-    console.log("name", name);
 
     return(
         <div className="mainContainer">
             <div className="mainContainerLeft">
-                <Accordion>
+                <Accordion className='leftAccordion'>
                     <Accordion.Item eventKey="0" style={{border: 'none'}}>
                         <Accordion.Header>
-                            <FontAwesomeIcon icon={faVideo}style={{marginRight: "10px"}}/>
+                            <FontAwesomeIcon className='iconImage' icon={faVideo} style={{marginRight: "10px"}}/>
                             Live Stream
                         </Accordion.Header>
                         <Accordion.Body>
                             <Link to={'/upload/video/live'}>
                                 <div className='btn'>
-                                On Third Party App
+                                    On Third Party App
                                 </div>
                             </Link>
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="1" style={{border: 'none'}}>
                         <Accordion.Header>
-                            <FontAwesomeIcon icon={faSquareCheck} style={{marginRight: "10px"}}/>
+                            <FontAwesomeIcon className='iconImage' icon={faSquareCheck} style={{marginRight: "10px"}}/>
                             Creator Studio
                         </Accordion.Header>
                         <Accordion.Body >
@@ -64,7 +62,7 @@ const ManageWorks = ({type}) => {
                 </Accordion>
                 <div eventKey="1" style={{border: 'none'}} className='accordionSimilarStyle'>
                     <button type="button" aria-expanded="false" className='accordion-button removeArrow'>
-                            <FontAwesomeIcon icon={faBarsProgress} style={{marginRight: "10px"}}/>
+                            <FontAwesomeIcon className='iconImage' icon={faBarsProgress} style={{marginRight: "10px"}}/>
                             Manage Works
                     </button>
                 </div>

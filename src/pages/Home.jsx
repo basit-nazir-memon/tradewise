@@ -41,7 +41,7 @@ const HomePage = () => {
                 />
             </div><br /><br />
             <Must/><br /><br />
-            <Video/><br /><br />
+            {/* <Video/><br /><br /> */}
             <Books/>
             <Community/>
             <Disc />

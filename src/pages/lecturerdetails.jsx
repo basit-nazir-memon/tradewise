@@ -26,7 +26,7 @@ function Lecturerdetails() {
         }
     ]
     let renderitems;
-    if (content.length == 0) {
+    if (content.length === 0) {
         renderitems = <h2>No Content Available</h2>
     } else {
         renderitems = content.map((Item) => (

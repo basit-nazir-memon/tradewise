@@ -25,3 +25,18 @@
 .videoUploadContainer>Button{
     background-color: tomato;
 }
+
+.videoUploadForm{
+    max-width: 70%;
+}
+
+@media (max-width: 720px){
+    .videoUploadContainer{
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .videoUploadForm{
+        max-width: 100%;
+    }
+}
