@@ -14,6 +14,7 @@ import ManageWorks from "./pages/ManageWorks/ManageWorks";
 import Setting from "./pages/ManageSettings/ManageSetting";
 import NavigationBar from "./components/NavigationBar";
 import UserRoute from "./Guards/UserGuard";
+import SignUp from "./components/authentication/SignUp";
 
 function App() {
   const [totalCoins, setTotalCoins] = React.useState(0);
@@ -27,6 +28,7 @@ function App() {
           path={"/Login"}
           element={<Login setTotalCoins={setTotalCoins} />}
         />
+        <Route path="/register" element={<SignUp/>}/>
         <Route path={"/"} element={<HomePage />} />
         <Route path="/ebooks" element={<Ebooks />} />
         <Route path="/wallet" element={<UserRoute><Wallet setTotalCoins={setTotalCoins} /></UserRoute>} />
