@@ -6,6 +6,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import "./NavigationBar.css";
+ 
 
 const NavigationBar = () => {
     // const isLoggedIn = localStorage.getItem('token');
@@ -23,7 +25,7 @@ const NavigationBar = () => {
         <Navbar collapseOnSelect expand="md" className="bg-body-tertiary mb-3">
             <Container>
                 <Navbar.Brand>
-                    <Link className='remove-link-style' to='/' style={{textDecoration: 'none'}}>TradeWise</Link>
+                    <Link className="remove-link-style logo"  to='/' style={{textDecoration: 'none'}}>TradeWise</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">

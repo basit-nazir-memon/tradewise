@@ -13,6 +13,7 @@ import PaymentProcessing from "./components/wallet/paymentProcessing"; // Update
 import ManageWorks from "./pages/ManageWorks/ManageWorks";
 import Setting from "./pages/ManageSettings/ManageSetting";
 import NavigationBar from "./components/NavigationBar";
+import Orders from "./components/orders/orders";
 
 function App() {
   const [totalCoins, setTotalCoins] = React.useState(0);
@@ -20,7 +21,7 @@ function App() {
   return (
     <Router>
       {/* <Topnavbar /> */}
-      <NavigationBar/>
+      <NavigationBar />
       <Routes>
         <Route
           path={"/Login"}
@@ -28,11 +29,23 @@ function App() {
         />
         <Route path={"/"} element={<HomePage />} />
         <Route path="/ebooks" element={<Ebooks />} />
-        <Route path="/wallet" element={<Wallet setTotalCoins={setTotalCoins} />} />
-        <Route path="/payment_Processing" element={<PaymentProcessing totalCoins={totalCoins} />} />
-        <Route path="/settings" element={<Setting totalCoins={totalCoins} />} />
+        <Route
+          path="/wallet"
+          element={<Wallet setTotalCoins={setTotalCoins} />}
+        />
+        <Route
+          path="/payment_Processing"
+          element={<PaymentProcessing totalCoins={totalCoins} />}
+        />
+        <Route path="/settings" element={<Setting totalCoins={totalCoins} />}>
+          <Route
+            path="wallet"
+            element={<Wallet setTotalCoins={setTotalCoins} />}
+          />
+        </Route>
+        <Route path="/orders" element={Orders}></Route>
         <Route path="/lecturers" element={<Lecturerdetails />} />
-        <Route path='/manage/works' element={<ManageWorks/>}/>
+        <Route path="/manage/works" element={<ManageWorks />} />
       </Routes>
       <Footer />
     </Router>
