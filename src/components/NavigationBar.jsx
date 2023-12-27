@@ -86,6 +86,9 @@ const NavigationBar = () => {
                                     <NavDropdown.Item>
                                         <Link className='remove-link-style' to='/settings'>Settings</Link>
                                     </NavDropdown.Item>
+                                    <NavDropdown.Item>
+                                        <Link className='remove-link-style' to='/orders'>Orders</Link>
+                                    </NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item onClick={handleLogOut}>
                                         Logout

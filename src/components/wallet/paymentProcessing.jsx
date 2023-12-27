@@ -52,7 +52,7 @@ const PaymentProcessing = () => {
       });
   
       if (!response.ok) {
-        window.alert("Payment Failed")
+        window.alert(response.error);
         throw new Error("Payment failed");
       }
   

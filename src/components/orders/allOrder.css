@@ -1,3 +1,52 @@
 .orders-list{
     margin: 10px;
 }
+.orderCard{
+    border-radius: 10px;
+    border-color: black;
+    padding: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    margin-bottom: 15px;
+}
+.row1{
+    display: flex;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 5px;
+    justify-content: space-between;
+    border-radius: 9px;
+    background-color: #f6f7f9;
+    
+
+}
+.row2{
+    display: flex;
+    justify-content: space-between;
+}
+.orderCoins {
+    background-color: #f57c4c;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: auto;
+    padding: 8px;
+    padding-right: 13px;
+    padding-left: 13px;
+    color: black;
+    margin-left: 2%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    display: inline-block;  /* Add this */
+    width: auto;           /* Remove any fixed width, if present */
+}
+.orderDate{
+    font-weight: 400;
+    font-size: medium;
+}
+.orderNumber{
+    font-weight: 600;
+}
+.coinIcon{
+    max-width:5%;
+    max-height: 5%;
+    margin-right: 20px;
+    
+}
