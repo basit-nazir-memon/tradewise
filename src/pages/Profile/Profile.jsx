@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Button, Card, Image, Tab, Tabs } from 'react-bootstrap';
 import './profile.css'
 import WorksLive from '../../components/works/worksLive';
 import { useParams } from 'react-router-dom';
 import WorksVideos from '../../components/works/worksVideos';
 import WorksEbooks from '../../components/works/worksEbooks';
+import axios from 'axios';
 
 const ChannelProfile = () => {
 
@@ -12,6 +13,37 @@ const ChannelProfile = () => {
     const filledStar = '\u2605';
     const [key, setKey] = useState('live');
     const { id } = useParams();
+
+    const [profileData, setProfileData] = useState({name: ""})
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                let url;
+                if (id){
+                    console.log("Id Entered");
+                    url = `http://localhost:5000/users/${id}`
+                }else{
+                    console.log("Entered");
+                    url = 'http://localhost:5000/user/me'
+                }
+
+                const response = await axios.get(url, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                if (response.data){
+                    setProfileData(response.data);
+                    console.log(response.data);
+                }
+            } catch (error) {
+                console.error('Error fetching user profile:', error);
+            }
+        };
+        fetchData();
+    }, []);
 
     return (
         <>
@@ -21,22 +53,22 @@ const ChannelProfile = () => {
             <div className="profileInfo">
                 <div className="profileInfoLeft">
                     <div className="profileInfoLeftPic">
-                        <Image roundedCircle src='https://img.trading.live/2753a7/4ba8d3/f4cc88a8e28742bb96f6c6342d7df492'/>
+                        <Image width={100} roundedCircle src={profileData.profilePic}/>
                     </div>
                     <div className="profileInfoLeftDetails">
-                        <div className="profileInfoLeftDetailsTop">Basit Nazir</div>
-                        <div className="profileInfoLeftDetailsBottom"><b>0</b>{" work   "} <b>0</b>{" subscribers"}</div>
+                        <div className="profileInfoLeftDetailsTop">{profileData.fullName}</div>
+                        <div className="profileInfoLeftDetailsBottom"><b>{profileData.works}</b>{" work   "} <b>0</b>{" subscribers"}</div>
                     </div>
                 </div>
                 <div className="profileInfoRight">
                     <div style={{ display: 'flex', flexDirection: 'column'}}>
                             <div style={{ display: 'flex', justifyContent: 'space-between'}}>
                                 <div >
-                                    <Card.Title style={{ color: '#fb4d1f', fontSize: '40px', fontStyle: 'italic' }}>{'0.0'}</Card.Title>
+                                    <Card.Title style={{ color: '#fb4d1f', fontSize: '40px', fontStyle: 'italic' }}>{profileData.rating}</Card.Title>
                                 </div>
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                                     <span style={{ color: '#fb4d1f', fontSize: '24px' }}>{filledStar.repeat(starCount)}</span>
-                                    <span style={{ color: '#fb4d1f', fontSize: '14px' }}>11234 ratings</span>
+                                    <span style={{ color: '#fb4d1f', fontSize: '14px' }}>{profileData.rating} ratings</span>
                                 </div>
                             </div>
                     </div>
