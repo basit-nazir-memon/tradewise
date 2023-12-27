@@ -18,21 +18,40 @@ function Orders() {
                 onSelect={(k) => setKey(k)}
                 className="mb-6"
             >
-                <Tab  className="tabs" eventKey="AllOrders" title="All Orders">
+                <Tab
+                    className="tabs"
+                    eventKey="AllOrders"
+                    title="All Orders"
+                    style={{ color: key === "AllOrders" ? "#f57c4c" : "black" }}
+                >
                     <AllOrders />
                 </Tab>
-                <Tab  className="tabs"  eventKey="PendingOrders" title="Pending">
-                    <ClosedOrders />
-                </Tab>
-                <Tab  className="tabs" eventKey="CompletedOrders" title="Completed">
-                    <ClosedOrders />
-                </Tab>
-                <Tab  className="tabs" eventKey="ClosedOrders" title="Closed">
+                <Tab
+                    className="tabs"
+                    eventKey="PendingOrders"
+                    title="Pending"
+                    style={{ color: key === "PendingOrders" ? "#f57c4c" : "black" }}
+                >
                     <PendingOrders />
+                </Tab>
+                <Tab
+                    className="tabs"
+                    eventKey="CompletedOrders"
+                    title="Completed"
+                    style={{ color: key === "CompletedOrders" ? "#f57c4c" : "black" }}
+                >
+                    <CompletedOrders />
+                </Tab>
+                <Tab
+                    className="tabs"
+                    eventKey="ClosedOrders"
+                    title="Closed"
+                    style={{ color: key === "ClosedOrders" ? "#f57c4c" : "black" }}
+                >
+                    <ClosedOrders />
                 </Tab>
             </Tabs>
         </div>
-        
     );
 }
 
