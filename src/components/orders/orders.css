@@ -10,3 +10,11 @@
 }
 
 
+.tabs .nav-link.active {
+  color: #f57c4c !important;
+}
+
+/* Set the default text color for tabs */
+.tabs .nav-link {
+  color: black !important;
+}

@@ -13,7 +13,7 @@ import PaymentProcessing from "./components/wallet/paymentProcessing"; // Update
 import ManageWorks from "./pages/ManageWorks/ManageWorks";
 import Setting from "./pages/ManageSettings/ManageSetting";
 import NavigationBar from "./components/NavigationBar";
-// import Orders from "./components/orders/orders";
+import Orders from "./components/orders/orders";
 import UserRoute from "./Guards/UserGuard";
 import SignUp from "./components/authentication/SignUp";
 import ChannelProfile from "./pages/Profile/Profile";
@@ -35,6 +35,7 @@ function App() {
         <Route path="/payment_Processing" element={<UserRoute><PaymentProcessing totalCoins={totalCoins} /></UserRoute>} />
         <Route path="/settings" element={<UserRoute><Setting totalCoins={totalCoins} /></UserRoute>} />
         <Route path="/lecturers" element={<Lecturerdetails />} />
+        <Route path="/orders" element={<Orders />} />
         <Route path='/manage/works' element={<UserRoute><ManageWorks type={"works"}/></UserRoute> }/>
         <Route path='/upload/video' element={<UserRoute><ManageWorks type={"uploadVideo"}/></UserRoute> }/>
         <Route path='/upload/video/live' element={<UserRoute><ManageWorks type={"uploadLive"}/></UserRoute> }/>
