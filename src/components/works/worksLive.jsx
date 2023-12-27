@@ -3,8 +3,26 @@ import VideoComponent from '../videoComponent';
 import { Col, Container, Row } from 'react-bootstrap';
 import axios from 'axios';
 
-const WorksLive = () => {
+const WorksLive = ({id}) => {
     const [videos, setVideos] = useState([]); 
+
+    const handleDelete = async (id) => {
+        const token = localStorage.getItem('token');
+
+        try {
+            const response = await axios.delete(
+                `http://localhost:5000/works/videos/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            console.log(response);
+            setVideos((videos) => videos.filter((video) => video._id !== id));
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
 
     useEffect(() => {
         const fetchBlogsData = async () => {
@@ -12,7 +30,14 @@ const WorksLive = () => {
                 const token = localStorage.getItem('token');
 
                 if (token) {
-                    const response = await axios.get('http://localhost:5000/works/videos/mine?type=live', {
+                    let url;
+                    if (id){
+                        url = `http://localhost:5000/works/author/${id}/videos?type=live`
+                    }else{
+                        url = 'http://localhost:5000/works/videos/mine?type=live'
+                    }
+
+                    const response = await axios.get(url, {
                         headers: {
                         Authorization: `Bearer ${token}`,
                         },
@@ -43,7 +68,7 @@ const WorksLive = () => {
                         videos.map((video, index) => {
                             return (
                                 <Col>
-                                    <VideoComponent key={index} video={video}/>
+                                    <VideoComponent key={index} video={video} isAuthor={ id ? false : true} handleDelete={handleDelete}/>
                                 </Col>
                             )
                         })

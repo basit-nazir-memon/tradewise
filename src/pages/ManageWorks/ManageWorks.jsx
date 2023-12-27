@@ -47,7 +47,7 @@ const ManageWorks = ({type}) => {
                                     Upload E-book
                                 </div>
                             </Link>
-                            <Link to={'/upload/question'}>
+                            {/* <Link to={'/upload/question'}>
                                 <div className='btn w100'>
                                     Ask Questions
                                 </div>
@@ -56,15 +56,17 @@ const ManageWorks = ({type}) => {
                                 <div className='btn w100'>
                                     Create Post
                                 </div>
-                            </Link>
+                            </Link> */}
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
                 <div eventKey="1" style={{border: 'none'}} className='accordionSimilarStyle'>
+                    <Link to={'/manage/works'} style={{textDecoration: 'none'}}>
                     <button type="button" aria-expanded="false" className='accordion-button removeArrow'>
                             <FontAwesomeIcon className='iconImage' icon={faBarsProgress} style={{marginRight: "10px"}}/>
                             Manage Works
                     </button>
+                    </Link>
                 </div>
             </div>
             <div className="mainContainerRight">

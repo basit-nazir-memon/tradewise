@@ -59,7 +59,7 @@ function Lecturerdetails() {
     ]
     return (
         <>
-            <Navbar bg="light" expand="lg">
+            {/* <Navbar bg="light" expand="lg">
                 <Container>
                     <Offcanvas show={showOffcanvas} onHide={() => setShowOffcanvas(false)}>
                         <Offcanvas.Header closeButton>
@@ -96,7 +96,7 @@ function Lecturerdetails() {
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>
+            </Navbar> */}
             <Header />
             <div className='Books-div'>
                 {btnarray.map((item) => (

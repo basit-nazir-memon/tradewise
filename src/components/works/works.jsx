@@ -28,12 +28,12 @@ function Works() {
                 <Tab eventKey="ebooks" title="Ebooks">
                     <WorksEbooks/>
                 </Tab>
-                <Tab eventKey="question" title="Question">
+                {/* <Tab eventKey="question" title="Question">
                     <WorksQuestion/>
                 </Tab>
                 <Tab eventKey="answer" title="Answer">
                     <WorksAnswer/>
-                </Tab>
+                </Tab> */}
             </Tabs>
         </div>
         

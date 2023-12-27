@@ -1,0 +1,41 @@
+.profileInfo{
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profileInfoLeft{
+    display: flex;
+    align-items: center;
+}
+
+.profileInfoLeftPic{
+    margin-top: -20px;
+    margin-right: 10px;
+}
+
+.profileInfoLeftDetailsTop{
+    font-weight:500;
+    font-size: 20px;
+}
+
+@media (max-width: 500px){
+    .profileInfo{
+        flex-direction: column;
+    }
+
+    .profileInfoLeft{
+        flex-direction: column;
+    }
+    .profileInfoLeftDetails{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profileInfoLeftPic{
+        margin-top: -50px;
+    }
+}

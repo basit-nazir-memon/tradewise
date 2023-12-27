@@ -16,6 +16,7 @@ import NavigationBar from "./components/NavigationBar";
 // import Orders from "./components/orders/orders";
 import UserRoute from "./Guards/UserGuard";
 import SignUp from "./components/authentication/SignUp";
+import ChannelProfile from "./pages/Profile/Profile";
 
 function App() {
   const [totalCoins, setTotalCoins] = React.useState(0);
@@ -25,6 +26,8 @@ function App() {
       <NavigationBar />
       <Routes>
         <Route path={"/"} element={<HomePage />} />
+        <Route path={"/profile"} element={<UserRoute><ChannelProfile /></UserRoute>} />
+        <Route path={"/profile/:id"} element={<ChannelProfile />} />
         <Route path={"/Login"} element={<Login setTotalCoins={setTotalCoins} />}/>
         <Route path="/register" element={<SignUp/>}/>
         <Route path="/ebooks" element={<Ebooks />} />
