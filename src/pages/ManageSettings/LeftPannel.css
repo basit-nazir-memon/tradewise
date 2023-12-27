@@ -1,16 +1,23 @@
-.tabs{
+.profileRow{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.mainContainer{
+    align-content: center;
+    justify-content: space-between;
 }
 
 
 
 .profilePic{
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 200px;
+    max-height: 200px;
+}
+.profileRow{
+    width: 100%;
+
+}
+.topUpButton{
+    width: 100px;
 }
 .profileSection{
     
@@ -18,15 +25,29 @@
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
+    align-items: center;
 }
 .NavItem {
   width: 100%;
   margin-bottom: 10px; /* Adjust margin as needed */
 }
 
-/* Add the following rule to ensure that the NavLink stays within its container */
 .NavLink {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+Button{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.orders{
+    
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.button{
+    width: auto;
 }

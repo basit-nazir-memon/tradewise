@@ -7,8 +7,8 @@ import PrivacySetting from "./privacySetting";
 import NotificationSetting from "./notificationSetting";
 
 function Setting() {
-    const [key, setKey] = useState('live');
-
+    const [key, setKey] = useState('Profile');
+    const userId = localStorage.getItem('id');
     return (
         <div className="settingContainer">
              <Tabs
@@ -18,7 +18,7 @@ function Setting() {
                 className="mb-6"
             >
                 <Tab eventKey="Profile" title="Profile">
-                    <Profile/>
+                    <Profile userId={userId}/>
                 </Tab>
                 <Tab eventKey="PrivacySetting" title="Privacy Settings">
                     <PrivacySetting/>
@@ -26,6 +26,7 @@ function Setting() {
                 <Tab eventKey="NotificationSetting" title="Notification Settings">
                     <NotificationSetting/>
                 </Tab>
+                
             </Tabs>
         </div>
         

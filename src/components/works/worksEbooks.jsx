@@ -1,55 +1,35 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import EbookComponent from '../ebookComponent';
 import { Col, Container, Row } from 'react-bootstrap';
+import axios from 'axios';
 
 const WorksEbooks = () => {
-    const [ebooks, setEbooks] = useState([
-        {
-            id: 123,
-            title: "Book Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Free",
-        },
-        {
-            id: 123,
-            title: "Book Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Free",
-        },
-        {
-            id: 123,
-            title: "Book Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Free",
-        },
-        {
-            id: 123,
-            title: "Book Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Paid",
-        },
-        {
-            id: 123,
-            title: "Book Title 1",
-            authorName: "John",
-            authorProfilePic: "https://media.istockphoto.com/id/968526678/photo/laughing-young-man-on-gray-background.jpg?s=612x612&w=0&k=20&c=08IdwXc1pONirofr6ngH76a5o8ziLBXv2xR6XocOwkg=",
-            authorId: "123",
-            coverImage: "https://www.wowmakers.com/static/Video-thumbnail-e743f3689ca0c0bac8faab39023da37f.jpeg",
-            type: "Free",
-        },
-    ]); 
+    const [ebooks, setEbooks] = useState([]); 
+
+    useEffect(() => {
+        const fetchEbooksData = async () => {
+            try {
+                const token = localStorage.getItem('token');
+
+                if (token) {
+                    const response = await axios.get('http://localhost:5000/works/ebooks/mine', {
+                        headers: {
+                        Authorization: `Bearer ${token}`,
+                        },
+                    });
+                    if (response.data){
+                        setEbooks(response.data);
+                    }
+                } else {
+                    console.log('Token not found.');
+                }
+            } catch (error) {
+                console.error('Error fetching ebooks:', error);
+            }
+        };
+        fetchEbooksData();
+    }, []);
+    
 
     return (
         <Container className='mt-3'>

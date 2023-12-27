@@ -34,8 +34,6 @@ button {
   border-radius: 4px;
 }
 
-.editandsavebuttons{
-}
 .editbutton{
     margin-right: 10px;
 }
@@ -43,6 +41,4 @@ button {
 
     margin-right: 10px;
 }
-button:hover {
-  /* background-color: #45a082; */
-}
+

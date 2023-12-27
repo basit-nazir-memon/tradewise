@@ -6,10 +6,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import "./NavigationBar.css";
+ 
 
 const NavigationBar = () => {
-    // const isLoggedIn = localStorage.getItem('token');
-    const isLoggedIn = true;
+    const isLoggedIn = localStorage.getItem('token');
     const role = localStorage.getItem('role');
 
     const handleLogOut = () => {
@@ -47,18 +48,19 @@ const NavigationBar = () => {
                     {
                         isLoggedIn ? (
                             <Nav>
-                                <NavDropdown
-                                    title={
-                                        <Image
-                                            src="https://play-lh.googleusercontent.com/C9CAt9tZr8SSi4zKCxhQc9v4I6AOTqRmnLchsu1wVDQL0gsQ3fmbCVgQmOVM1zPru8UH=w240-h480-rw"
-                                            roundedCircle
-                                            style={{
-                                                width: '30px',
-                                                height: '30px'
-                                            }}
-                                        />
-                                    }
-                                    id="collapsible-nav-dropdown">
+                                <NavDropdown 
+                                title={
+                                    <Image 
+                                    src="https://play-lh.googleusercontent.com/C9CAt9tZr8SSi4zKCxhQc9v4I6AOTqRmnLchsu1wVDQL0gsQ3fmbCVgQmOVM1zPru8UH=w240-h480-rw" 
+                                    roundedCircle 
+                                    style={{
+                                        width: '30px',
+                                        height: '30px',
+                                        backgroundColor: 'white'
+                                    }}
+                                    />
+                                } 
+                                id="collapsible-nav-dropdown">
                                     {
                                         role === 'admin' ? (
                                             <>

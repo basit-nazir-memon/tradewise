@@ -1,0 +1,12 @@
+/* orders.css */
+
+.tabs .nav-link {
+  margin-right: 10px; /* Adjust spacing between tabs as needed */
+}
+
+/* Additional styling options for visual clarity */
+.tabs .nav-link.active {
+  border-bottom: 2px solid #007bff; /* Highlight active tab */
+}
+
+
