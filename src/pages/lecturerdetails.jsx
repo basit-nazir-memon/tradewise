@@ -11,18 +11,22 @@ function Lecturerdetails() {
         {
             imageUrl: "https://images.pexels.com/photos/2088169/pexels-photo-2088169.jpeg?auto=compress&cs=tinysrgb&w=800",
             title: "Trading Live",
-            description: "Description of goes here.",
+            description: "Description of goes one.",
             works: "29",
             subscribers: "2.7M",
-            rating: '9.9'
+            avgrating: 9.9,
+            tags:['Forex',"Crypto"],
+            totalrating:112
         },
         {
             imageUrl: "https://images.pexels.com/photos/593227/pexels-photo-593227.jpeg?auto=compress&cs=tinysrgb&w=800",
             title: "Fast Bull",
-            description: "Description of goes here.",
+            description: "Description of goes two.",
             works: "19",
             subscribers: "2.1M",
-            rating: '9.4'
+            avgrating: 9.4,
+            tags:['Forex',"Crypto"],
+            totalrating:134
         }
     ]
     let renderitems;
@@ -36,7 +40,9 @@ function Lecturerdetails() {
                 description={Item.description}
                 works={Item.works}
                 subscribers={Item.subscribers}
-                rating={Item.rating}
+                rating={Item.avgrating}
+                tags={Item.tags}
+                totalrating={Item.totalrating}
             />
         ))
     }
@@ -45,21 +51,21 @@ function Lecturerdetails() {
     const handleOffcanvas = () => setShowOffcanvas((prev) => !prev);
     const btnarray = [
         {
-            name: 'Latest',
-            path: '/Latest'
-        },
-        {
-            name: 'Education',
-            path: '/Education'
-        },
-        {
             name: 'All',
-            path: '/All'
+            func: 'func1'
+        },
+        {
+            name: 'Verified',
+            func: 'func2'
+        },
+        {
+            name: 'Not Verified',
+            func: 'func3'
         },
     ]
     return (
         <>
-            <Navbar bg="light" expand="lg">
+            {/* <Navbar bg="light" expand="lg">
                 <Container>
                     <Offcanvas show={showOffcanvas} onHide={() => setShowOffcanvas(false)}>
                         <Offcanvas.Header closeButton>
@@ -96,17 +102,17 @@ function Lecturerdetails() {
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>
+            </Navbar> */}
             <Header />
             <div className='Books-div'>
                 {btnarray.map((item) => (
-                    <Link className="books-div-link" path={item.path}>{item.name}</Link>
+                    <Link className="books-div-link" onClick={item.func}>{item.name}</Link>
                 ))}
             </div>
             <div>
                 {renderitems}
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }
