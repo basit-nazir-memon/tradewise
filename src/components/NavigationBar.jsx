@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import sitelogo from "../assets/logo.png"
 import "./NavigationBar.css";
  
 
@@ -24,25 +25,27 @@ const NavigationBar = () => {
         <Navbar collapseOnSelect expand="md" className="bg-body-tertiary mb-3">
             <Container>
                 <Navbar.Brand>
-                    <Link className="remove-link-style logo"  to='/' style={{textDecoration: 'none'}}>TradeWise</Link>
+                    <Link className="remove-link-style logo"  to='/' style={{textDecoration: 'none'}}>
+                        <img src={sitelogo} />
+                    </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link>
-                            <Link className='remove-link-style' to='/live'>Live</Link>
+                            <Link className='remove-link-style navbr' to='/live'>Live</Link>
                         </Nav.Link>
                         <Nav.Link>
-                            <Link className='remove-link-style' to='/videos'>Videos</Link>
+                            <Link className='remove-link-style navbr' to='/videos'>Videos</Link>
                         </Nav.Link>
                         <Nav.Link>
-                            <Link className='remove-link-style' to='/ebooks'>Ebooks</Link>
+                            <Link className='remove-link-style  navbr' to='/ebooks'>Ebooks</Link>
                         </Nav.Link>
                         <Nav.Link>
-                            <Link className='remove-link-style' to='/lecturers'>Lecturers</Link>
+                            <Link className='remove-link-style navbr' to='/lecturers'>Lecturers</Link>
                         </Nav.Link>
                         <Nav.Link>
-                            <Link className='remove-link-style' to='/community'>Community</Link>
+                            <Link className='remove-link-style navbr' to='/community'>Community</Link>
                         </Nav.Link>
                     </Nav>
                     {
