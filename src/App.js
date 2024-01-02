@@ -16,6 +16,8 @@ import NavigationBar from "./components/NavigationBar";
 import Orders from "./components/orders/orders";
 import UserRoute from "./Guards/UserGuard";
 import SignUp from "./components/authentication/SignUp";
+import AdminDashboard from "./pages/Admin/adminDashboard/adminDashboard";
+import AdminOrders from "./pages/Admin/orders/orders";
 import ChannelProfile from "./pages/Profile/Profile";
 import Videos from "./pages/Videos/videos";
 import TradingViewPage from './pages/TradingViewPage';
@@ -34,6 +36,8 @@ function App() {
         <Route path={"/profile/:id"} element={<ChannelProfile />} />
         <Route path={"/Login"} element={<Login setTotalCoins={setTotalCoins} />}/>
         <Route path="/register" element={<SignUp/>}/>
+        <Route path="/admin" element={<UserRoute><AdminDashboard /></UserRoute>} />
+        <Route path="/admin/orders" element={<UserRoute><AdminOrders /></UserRoute>} />
         <Route path="/ebooks" element={<Ebooks />} />
         <Route path="/wallet" element={<UserRoute><Wallet setTotalCoins={setTotalCoins} /></UserRoute>} />
         <Route path="/payment_Processing" element={<UserRoute><PaymentProcessing totalCoins={totalCoins} /></UserRoute>} />

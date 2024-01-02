@@ -28,7 +28,7 @@ const Login = () => {
               password,
           });
           const { data } = response;
-          if (response.status === 200) {
+          if (response.status === 200 && localStorage.getItem('role')) {
               localStorage.setItem('token', data.token);
               localStorage.setItem('role', data.role);
               localStorage.setItem('id', data.id);
@@ -79,6 +79,7 @@ const Login = () => {
                     <GoogleLogin
                       onSuccess={(credentialResponse) => {
                         console.log(credentialResponse);
+                        
                       }}
                       onError={() => {
                         console.log("Login Failed");
