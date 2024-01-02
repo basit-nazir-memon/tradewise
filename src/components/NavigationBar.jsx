@@ -52,7 +52,7 @@ const NavigationBar = () => {
                                 <NavDropdown 
                                 title={
                                     <Image 
-                                    src="https://play-lh.googleusercontent.com/C9CAt9tZr8SSi4zKCxhQc9v4I6AOTqRmnLchsu1wVDQL0gsQ3fmbCVgQmOVM1zPru8UH=w240-h480-rw" 
+                                    src="https://gaveinjaz.com/wp-content/uploads/2019/12/opulent-profile-square-07.jpg" 
                                     roundedCircle 
                                     style={{
                                         width: '30px',
