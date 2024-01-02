@@ -3,19 +3,19 @@ import Carousel from 'react-bootstrap/Carousel';
 function DarkVariantExample() {
     const content = [
         {
-            imagesrc: "https://images.unsplash.com/photo-1544967082-d9d25d867d66?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            tag: "First Slide label",
-            description: "Nulla vitae elit libero, a pharetra augue mollis interdum."
+            imagesrc: "https://img.trading.live/2753a7/096743/151874ef4cc9458981f1028053628d02.png",
+            tag: "Trading is Live",
+            description: "Buying and selling financial instruments within the same trading day"
         },
         {
-            imagesrc: "https://images.unsplash.com/photo-1611197072011-736d9b407c8b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
-            tag: "Second Slide label",
-            description: "Nulla vitae elit libero, a pharetra augue mollis interdum."
+            imagesrc: "https://images.pexels.com/photos/187041/pexels-photo-187041.jpeg?auto=compress&cs=tinysrgb&w=800",
+            tag: "Invest Now",
+            description: " Holding positions for an extended period, often based on fundamental analysis."
         },
         {
-            imagesrc: "https://images.unsplash.com/photo-1629788959554-ef4502a45e7d?q=80&w=2545&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            tag: "Third Slide label",
-            description: "Nulla vitae elit libero, a pharetra augue mollis interdum."
+            imagesrc: "https://images.pexels.com/photos/6781273/pexels-photo-6781273.jpeg?auto=compress&cs=tinysrgb&w=800",
+            tag: "Stocks",
+            description: "Riding the direction of an established market trend"
         },
 
     ]
@@ -30,7 +30,7 @@ function DarkVariantExample() {
             />
             <Carousel.Caption>
                 <h5>{item.tag}</h5>
-                <p>{item.description}</p>
+                <p style={{color:"White"}}>{item.description}</p>
             </Carousel.Caption>
         </Carousel.Item>
     ));

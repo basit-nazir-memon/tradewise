@@ -20,7 +20,7 @@ function Streamers({ content }) {
             {content.map((item, index) => (
                 <ListGroup.Item
                     as="li"
-                    key={index} // Add a unique key for each list item when using map
+                    key={index} 
                     className="d-flex justify-content-between align-items-start"
                 >
                     <div className="ms-2 me-auto">

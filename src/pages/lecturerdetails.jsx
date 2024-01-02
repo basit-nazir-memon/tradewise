@@ -1,5 +1,5 @@
 import Header from '../components/header';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Navbar, Container, Nav, Offcanvas, Button, Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
@@ -7,42 +7,95 @@ import Footer from '../components/footer';
 import Lecdiv from '../components/lecturerdiv';
 
 function Lecturerdetails() {
-    const content = [
-        {
-            imageUrl: "https://images.pexels.com/photos/2088169/pexels-photo-2088169.jpeg?auto=compress&cs=tinysrgb&w=800",
-            title: "Trading Live",
-            description: "Description of goes one.",
-            works: "29",
-            subscribers: "2.7M",
-            avgrating: 9.9,
-            tags:['Forex',"Crypto"],
-            totalrating:112
-        },
-        {
-            imageUrl: "https://images.pexels.com/photos/593227/pexels-photo-593227.jpeg?auto=compress&cs=tinysrgb&w=800",
-            title: "Fast Bull",
-            description: "Description of goes two.",
-            works: "19",
-            subscribers: "2.1M",
-            avgrating: 9.4,
-            tags:['Forex',"Crypto"],
-            totalrating:134
+   
+    const [content, Setcontent] = useState([]);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    async function fetchData() {
+        try {
+            let response = await fetch(`http://localhost:5000/works/AllLecturer`, {
+                method: 'get',
+                headers: { 'Content-Type': 'application/json' },
+            });
+            const data = await response.json(); // Store the JSON data in a variable
+    
+            console.log(data);
+            if (response.status === 200) {
+                Setcontent(data); // Use the stored data
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
         }
-    ]
+    }
+    async function fetchData1() {
+        try {
+            let response = await fetch(`http://localhost:5000/works/VerifiedLecturer`, {
+                method: 'get',
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            if (response.status === 200) {
+                const userinfo = await response.json();
+                Setcontent(userinfo);
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+    async function fetchData2() {
+        try {
+            let response = await fetch(`http://localhost:5000/works/NotVerifiedLecturer`, {
+                method: 'get',
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            if (response.status === 200) {
+                const userinfo = await response.json();
+                Setcontent(userinfo);
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+    // const content = [
+    //     {
+    //         imageUrl: "https://images.pexels.com/photos/2088169/pexels-photo-2088169.jpeg?auto=compress&cs=tinysrgb&w=800",
+    //         title: "Trading Live",
+    //         description: "Description of goes one.",
+    //         works: "29",
+    //         subscribers: "2.7M",
+    //         avgrating: 9.9,
+    //         tags:['Forex',"Crypto"],
+    //         totalrating:112
+    //     },
+    //     {
+    //         imageUrl: "https://images.pexels.com/photos/593227/pexels-photo-593227.jpeg?auto=compress&cs=tinysrgb&w=800",
+    //         title: "Fast Bull",
+    //         description: "Description of goes two.",
+    //         works: "19",
+    //         subscribers: "2.1M",
+    //         avgrating: 9.4,
+    //         tags:['Forex',"Crypto"],
+    //         totalrating:134
+    //     }
+    // ]
     let renderitems;
     if (content.length === 0) {
         renderitems = <h2>No Content Available</h2>
     } else {
         renderitems = content.map((Item) => (
             <Lecdiv
-                imageUrl={Item.imageUrl}
-                title={Item.title}
-                description={Item.description}
+                imageUrl={Item.profilePic}
+                title={Item.fullName}
+                description={Item.userInfo}
                 works={Item.works}
-                subscribers={Item.subscribers}
+                subscribers={Item.followersCount}
                 rating={Item.avgrating}
                 tags={Item.tags}
-                totalrating={Item.totalrating}
+                totalrating={Item.rating}
             />
         ))
     }
@@ -105,9 +158,12 @@ function Lecturerdetails() {
             </Navbar> */}
             <Header />
             <div className='Books-div'>
-                {btnarray.map((item) => (
+                {/* {btnarray.map((item) => (
                     <Link className="books-div-link" onClick={item.func}>{item.name}</Link>
-                ))}
+                ))} */}
+                <Link className="books-div-link" onClick={fetchData}>All</Link>
+                <Link className="books-div-link" onClick={fetchData1}>Verfied</Link>
+                <Link className="books-div-link" onClick={fetchData2}>Not Verified</Link>
             </div>
             <div>
                 {renderitems}
