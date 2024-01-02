@@ -83,6 +83,7 @@ const Login = () => {
                       onError={() => {
                         console.log("Login Failed");
                       }}
+                      auto_select= {true}
                     />
                   </div>
         </Form>

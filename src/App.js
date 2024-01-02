@@ -17,6 +17,9 @@ import Orders from "./components/orders/orders";
 import UserRoute from "./Guards/UserGuard";
 import SignUp from "./components/authentication/SignUp";
 import ChannelProfile from "./pages/Profile/Profile";
+import Videos from "./pages/Videos/videos";
+import TradingViewPage from './pages/TradingViewPage';
+import ReactVideoPlayerWithComments from "./pages/ReactVideoPlayer";
 
 function App() {
   const [totalCoins, setTotalCoins] = React.useState(0);
@@ -26,6 +29,7 @@ function App() {
       <NavigationBar />
       <Routes>
         <Route path={"/"} element={<HomePage />} />
+        <Route path={"/videos"} element={<Videos />} />
         <Route path={"/profile"} element={<UserRoute><ChannelProfile /></UserRoute>} />
         <Route path={"/profile/:id"} element={<ChannelProfile />} />
         <Route path={"/Login"} element={<Login setTotalCoins={setTotalCoins} />}/>
@@ -40,6 +44,8 @@ function App() {
         <Route path='/upload/video' element={<UserRoute><ManageWorks type={"uploadVideo"}/></UserRoute> }/>
         <Route path='/upload/video/live' element={<UserRoute><ManageWorks type={"uploadLive"}/></UserRoute> }/>
         <Route path='/upload/ebook' element={<UserRoute><ManageWorks type={"uploadEbook"}/></UserRoute> }/>
+        <Route path='/ebooks/:id' element={<UserRoute><TradingViewPage/></UserRoute> }/>
+        <Route path='/videos/:id' element={<UserRoute><ReactVideoPlayerWithComments/></UserRoute> }/>
       </Routes>
       <Footer />
     </Router>

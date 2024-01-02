@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import { Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const VideoComponent = ({video, isAuthor, handleDelete}) => {
 
@@ -20,7 +21,9 @@ const VideoComponent = ({video, isAuthor, handleDelete}) => {
             />
             <Button variant={video.type === "Live" ? "danger" : video.type === "Upcoming" ? "success" : "warning"} size='sm' style={{ right: '10px', position: 'absolute', top:'5px' }}>{video.type}</Button>
             <Card.Body>
-                <Card.Title>{video.title}</Card.Title>
+                <Link to={`/videos/${video.id}`} style={{textDecoration: 'none'}}>
+                    <Card.Title>{video.title}</Card.Title>
+                </Link>
                 <div style={{ display: 'flex', margin: '5px 0'}}>
                     <Image
                         src={video.authorProfilePic}
