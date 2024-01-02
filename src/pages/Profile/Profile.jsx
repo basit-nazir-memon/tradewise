@@ -80,13 +80,19 @@ const ChannelProfile = () => {
                 onSelect={(k) => setKey(k)}
                 className="mb-6 mt-3"
             >
-                <Tab eventKey="live" title="Live">
+                <Tab eventKey="live" title="Live"
+                    style={{backgroundColor: 'white'}}
+                >
                     <WorksLive id={id}/>
                 </Tab>
-                <Tab eventKey="videos" title="Videos">
+                <Tab eventKey="videos" title="Videos"
+                    style={{backgroundColor: 'white'}}
+                >
                     <WorksVideos id={id}/>
                 </Tab>
-                <Tab eventKey="ebooks" title="Ebooks">
+                <Tab eventKey="ebooks" title="Ebooks"
+                    style={{backgroundColor: 'white'}}
+                >
                     <WorksEbooks id={id}/>
                 </Tab>
             </Tabs>

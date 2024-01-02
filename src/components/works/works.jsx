@@ -19,13 +19,19 @@ function Works() {
                 onSelect={(k) => setKey(k)}
                 className="mb-6"
             >
-                <Tab eventKey="live" title="Live">
+                <Tab eventKey="live" title="Live" 
+                style={{backgroundColor: 'white'}}
+                >
                     <WorksLive/>
                 </Tab>
-                <Tab eventKey="videos" title="Videos">
+                <Tab eventKey="videos" title="Videos"
+                style={{backgroundColor: 'white'}}
+                >
                     <WorksVideos/>
                 </Tab>
-                <Tab eventKey="ebooks" title="Ebooks">
+                <Tab eventKey="ebooks" title="Ebooks"
+                style={{backgroundColor: 'white'}}
+                >
                     <WorksEbooks/>
                 </Tab>
                 {/* <Tab eventKey="question" title="Question">

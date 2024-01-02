@@ -1,3 +1,16 @@
+/* :root {
+  --yellow: linear-gradient(180deg, #f8d49a -146.42%, #fad79d -46.42%);
+  --orange: #fca61f;
+  --black: #242d49;
+  --gray: #788097;
+  --purple: linear-gradient(180deg, #bb67ff 0%, #fff 100%);
+  --pink: #fb4d1f;
+  --glass: rgba(255, 255, 255, 0.54);
+  --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
+  --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+  --activeItem: #f799a354;
+} */
+
 .App {
   text-align: center;
 }
@@ -36,7 +49,6 @@
 .learndivsbtn {
   display: flex;
   justify-content: space-around;
-
 }
 
 .writings {
@@ -45,7 +57,7 @@
 }
 
 .learndivsbtn button:hover {
-  transform: scale(1.1);  
+  transform: scale(1.1);
   transition: transform 0.3s ease;
 }
 
@@ -56,7 +68,7 @@
   justify-content: space-evenly;
 }
 
-.mustwatchdivs>* {
+.mustwatchdivs > * {
   width: calc(33.33% - 10px);
   margin: 10px;
 }
@@ -68,11 +80,10 @@
   justify-content: space-evenly;
 }
 
-.Books>* {
+.Books > * {
   width: calc(20% - 20px);
   margin: 10px;
 }
-
 
 .First {
   width: 75%;
@@ -85,20 +96,20 @@
 .must {
   display: flex;
 }
-.multiline-ellipsis{
+.multiline-ellipsis {
   line-height: 23px;
-display: -webkit-box;
--webkit-line-clamp: 6;
--webkit-box-orient: vertical;
-overflow: hidden;
-word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
 }
 .communitybtn {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.communitydiv{
+.communitydiv {
   display: flex;
   justify-content: space-around;
   margin-top: 2%;
@@ -133,12 +144,12 @@ word-break: break-word;
     transform: rotate(360deg);
   }
 }
-.Disc{
+.Disc {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
-.lecturer{
+.lecturer {
   display: flex;
   justify-content: space-around;
   margin-bottom: 10%;
@@ -164,7 +175,7 @@ word-break: break-word;
 .books-div-link:hover {
   background-color: #ccc; /* Darker grey on hover */
 }
-.books-details{
+.books-details {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -172,7 +183,7 @@ word-break: break-word;
 .book-card:hover {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
-.Lecdiv{
+.Lecdiv {
   width: 90%;
   margin: 0 auto;
 }
@@ -182,7 +193,7 @@ word-break: break-word;
 }
 
 .Lecbtn > a {
-  background-color:rgba(66,133,244,.1);
+  background-color: rgba(66, 133, 244, 0.1);
   color: #4285f4;
   padding: 5px 10px;
   margin: 0 5px;
@@ -191,15 +202,15 @@ word-break: break-word;
   font-size: small;
 }
 
-.remove-link-style{
+.remove-link-style {
   text-decoration: none;
   color: tomato;
 }
 
-h3{
+h3 {
   color: tomato;
 }
 
-.dropdown-toggle{
+.dropdown-toggle {
   background-color: white;
 }
