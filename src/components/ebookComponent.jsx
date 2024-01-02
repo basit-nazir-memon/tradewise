@@ -2,10 +2,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-const EbookComponent = ({ebook}) => {
+const EbookComponent = ({ebook, isAuthor, handleDelete}) => {
     return (
-        <Link to={`/ebooks/${ebook.id}`} style={{textDecoration: 'none'}}>
+        
             <Card style={{margin: '5px'}}>
                 <Card.Img
                     variant="top"
@@ -20,7 +22,9 @@ const EbookComponent = ({ebook}) => {
                 />
                 <Button variant={ebook.type === "Free" ? "success" : "warning"} size='sm' style={{ right: '10px', position: 'absolute', top:'5px' }}>{ebook.type}</Button>
                 <Card.Body>
-                    <Card.Title>{ebook.title}</Card.Title>
+                    <Link to={`/ebooks/${ebook.id}`} style={{textDecoration: 'none'}}>
+                        <Card.Title>{ebook.title}</Card.Title>
+                    </Link>
                     <div style={{ display: 'flex', margin: '5px 0'}}>
                         <Image
                             src={ebook.authorProfilePic}
@@ -32,8 +36,19 @@ const EbookComponent = ({ebook}) => {
                         <Card.Link href={`/profile/${ebook.authorId}`}>{ebook.authorName}</Card.Link>
                     </div>
                 </Card.Body>
+                {
+                    isAuthor? 
+                        <Card.Footer style={{display: 'flex', justifyContent: 'flex-end'}}>
+                            <Button style={{marginRight: '5px'}} variant='outline-danger' onClick={(e) => handleDelete(e, ebook._id)}>
+                                <FontAwesomeIcon icon={faTrash}/>
+                            </Button>
+                            <Button variant='outline-warning'>
+                                <FontAwesomeIcon icon={faPenToSquare}/>
+                            </Button>
+                        </Card.Footer>
+                    : ''
+                }
             </Card>
-        </Link>
     );
 }
 

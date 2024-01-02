@@ -11,31 +11,36 @@ function Ebooks() {
             bookImageUrl: "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=800",
             bookDescription: "Description of the book goes here goes and explains nsjdbuigdfwgeu",
             writerImageUrl: "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=800",
-            writerName: "Writer's Name"
+            writerName: "Writer's Name",
+            views:120
         },
         {
             bookImageUrl: "https://images.pexels.com/photos/3747506/pexels-photo-3747506.jpeg?auto=compress&cs=tinysrgb&w=800",
             bookDescription: "Description of the book goes here goes and explains nsjdbuigdfwgeu",
             writerImageUrl: "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=800",
-            writerName: "Writer's Name"
+            writerName: "Writer's Name",
+            views:120
         },
         {
             bookImageUrl: "https://images.pexels.com/photos/3747497/pexels-photo-3747497.jpeg?auto=compress&cs=tinysrgb&w=800",
             bookDescription: "Description of the book goes here goes and explains nsjdbuigdfwgeu",
             writerImageUrl: "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=800",
-            writerName: "Writer's Name"
+            writerName: "Writer's Name",
+            views:120
         },
         {
             bookImageUrl: "https://images.pexels.com/photos/4238505/pexels-photo-4238505.jpeg?auto=compress&cs=tinysrgb&w=800",
             bookDescription: "Description of the book goes here goes and explains nsjdbuigdfwgeu",
             writerImageUrl: "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=800",
-            writerName: "Writer's Name"
+            writerName: "Writer's Name",
+            views:120
         },
         {
             bookImageUrl: "https://images.pexels.com/photos/6373409/pexels-photo-6373409.jpeg?auto=compress&cs=tinysrgb&w=800",
             bookDescription: "Description of the book goes here goes and explains nsjdbuigdfwgeu",
             writerImageUrl: "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=800",
-            writerName: "Writer's Name"
+            writerName: "Writer's Name",
+            views:"12k"
         }
     ];
     let renderitems;
@@ -48,18 +53,26 @@ function Ebooks() {
                 bookDescription={items.bookDescription}
                 writerImageUrl={items.writerImageUrl}
                 writerName={items.writerName}
+                views={items.views}
             />
         ))
     }
     const btnarr = [
         {
-            name: 'Featured',
+            name:'All',
+            func:"func1"
         },
         {
-            name: 'Latest',
+            name: 'Novels',
+            func:"func2"
+        },
+        {
+            name: 'Science Fiction',
+            func:"func3"
         },
         {
             name: 'Education',
+            func:"func4"
         },
     ]
     const dropmenu=[
@@ -82,7 +95,7 @@ function Ebooks() {
 
     return (
         <>
-            <Navbar bg="light" expand="lg">
+            {/* <Navbar bg="light" expand="lg">
                 <Container>
                     <Offcanvas show={showOffcanvas} onHide={() => setShowOffcanvas(false)}>
                         <Offcanvas.Header closeButton>
@@ -107,7 +120,6 @@ function Ebooks() {
                                 <Dropdown.Toggle variant="success" id="dropdown-basic" size="sm">
                                     Creator Studio
                                 </Dropdown.Toggle>
-
                                 <Dropdown.Menu>
                                     {dropmenu.map((item)=>(
                                         <Dropdown.Item href={item.path}> {item.name}</Dropdown.Item>
@@ -118,12 +130,13 @@ function Ebooks() {
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>
+            </Navbar> */}
             <Header />
             <div className='Books-div'>
                 {btnarr.map((item) => (
-                    <Link className="books-div-link">{item.name}</Link>
+                    <Link className="books-div-link" onClick={item.func}>{item.name}</Link>
                 ))}
+                
             </div>
             <div className='books-details'>
                 {renderitems}

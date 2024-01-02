@@ -3,8 +3,26 @@ import EbookComponent from '../ebookComponent';
 import { Col, Container, Row } from 'react-bootstrap';
 import axios from 'axios';
 
-const WorksEbooks = () => {
+const WorksEbooks = ({id}) => {
     const [ebooks, setEbooks] = useState([]); 
+
+    const handleDeleteFunc = async (event, id) => {
+        event.stopPropagation();
+
+        const token = localStorage.getItem('token');
+        try {
+            const response = await axios.delete(
+                `http://localhost:5000/works/ebooks/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(response);
+            setEbooks((ebookss) => ebookss.filter((ebook) => ebook._id !== id));
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
 
     useEffect(() => {
         const fetchEbooksData = async () => {
@@ -12,7 +30,15 @@ const WorksEbooks = () => {
                 const token = localStorage.getItem('token');
 
                 if (token) {
-                    const response = await axios.get('http://localhost:5000/works/ebooks/mine', {
+                    let url;
+
+                    if (id){
+                        url = `http://localhost:5000/works/author/${id}/ebooks`
+                    }else{
+                        url = 'http://localhost:5000/works/ebooks/mine'
+                    }
+        
+                    const response = await axios.get(url, {
                         headers: {
                         Authorization: `Bearer ${token}`,
                         },
@@ -43,7 +69,7 @@ const WorksEbooks = () => {
                         ebooks.map((ebook, index) => {
                             return (
                                 <Col>
-                                    <EbookComponent key={index} ebook={ebook}/>
+                                    <EbookComponent key={index} ebook={ebook} isAuthor={id ? false : true} handleDelete={handleDeleteFunc}/>
                                 </Col>
                             )
                         })

@@ -30,13 +30,27 @@ th {
   }
 }
 
-
 @media screen and (max-width: 768px) {
-  .Table{
+  .Table {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 23rem;
   }
+}
+
+.userRow {
+  margin: 10px;
+  margin-left: 10px;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.userRow:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+.TableBody {
+  padding-left: 10px;
+  padding-right: 10px;
 }

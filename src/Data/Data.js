@@ -21,23 +21,19 @@ export const SidebarData = [
   {
     icon: UilEstate,
     heading: "Dashboard",
+    path:"/admin/"
   },
   {
     icon: UilClipboardAlt,
     heading: "Orders",
+    path:"/admin/orders"
   },
   {
     icon: UilUsersAlt,
     heading: "Users",
-  },
-  {
-    icon: UilVideo,
-    heading: "Videos",
-  },
-  {
-    icon: UilBookOpen,
-    heading: "EBooks",
-  },
+    path:"/admin/users"
+
+  }
 ];
 
 // Analytics Cards Data

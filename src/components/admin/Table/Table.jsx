@@ -1,4 +1,5 @@
 import * as React from "react";
+import {useState, useEffect} from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -6,29 +7,18 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import coin from "./star.png";
 import "./Table.css";
 
-function createData(name, trackingId, date, status) {
-  return { name, trackingId, date, status };
-}
-
-const rows = [
-  createData("Lasania Chiken Fri", 18908424, "2 March 2022", "Approved"),
-  createData("Big Baza Bang ", 18908424, "2 March 2022", "Pending"),
-  createData("Mouth Freshner", 18908424, "2 March 2022", "Approved"),
-  createData("Cupcake", 18908421, "2 March 2022", "Delivered"),
-];
-
-
 const makeStyle=(status)=>{
-  if(status === 'Approved')
+  if(status === 'completed')
   {
     return {
       background: 'rgb(145 254 159 / 47%)',
       color: 'green',
     }
   }
-  else if(status === 'Pending')
+  else if(status === 'pending')
   {
     return{
       background: '#ffadad8f',
@@ -44,6 +34,41 @@ const makeStyle=(status)=>{
 }
 
 export default function BasicTable() {
+  
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+      fetchOrders();
+  }, []);
+
+  const AuthToken = localStorage.getItem('token');
+  const userId = localStorage.getItem('id');
+
+  console.log("token :"+AuthToken);
+  const fetchOrders = async () => {
+
+      try {
+          const response = await fetch(`http://localhost:5000/orders/`, {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${AuthToken}` // Replace with your actual authentication token
+              },
+             
+          });
+
+          if (!response.ok) {
+              throw new Error('Failed to fetch orders');
+          }
+
+          const data = await response.json();
+          console.log(data);
+          setOrders(data);
+      } catch (error) {
+          console.error(error);
+      }
+  };
+
   return (
       <div className="Table">
       <h3>Recent Orders</h3>
@@ -55,25 +80,25 @@ export default function BasicTable() {
             <TableHead>
               <TableRow>
                 <TableCell>Product</TableCell>
-                <TableCell align="left">Tracking ID</TableCell>
+                <TableCell align="left">User</TableCell>
                 <TableCell align="left">Date</TableCell>
                 <TableCell align="left">Status</TableCell>
-                <TableCell align="left"></TableCell>
+                <TableCell align="left">Details</TableCell>
               </TableRow>
             </TableHead>
             <TableBody style={{ color: "white" }}>
-              {rows.map((row) => (
+              {orders.map((order) => (
                 <TableRow
-                  key={row.name}
+                  key={order.orderNumber}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    {row.name}
+                    {order.numberOfCoins} Coins
                   </TableCell>
-                  <TableCell align="left">{row.trackingId}</TableCell>
-                  <TableCell align="left">{row.date}</TableCell>
+                  <TableCell align="left">{order.orderNumber}</TableCell>
+                  <TableCell align="left">{order.placedDate}</TableCell>
                   <TableCell align="left">
-                    <span className="status" style={makeStyle(row.status)}>{row.status}</span>
+                    <span className="status" style={makeStyle(order.status)}>{order.status}</span>
                   </TableCell>
                   <TableCell align="left" className="Details">Details</TableCell>
                 </TableRow>

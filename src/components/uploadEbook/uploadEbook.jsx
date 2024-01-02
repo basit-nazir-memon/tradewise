@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import { Col, Container, Nav, Navbar, Row, ListGroup } from 'react-bootstrap';
-import { Button, Modal,  Form, Input, InputNumber  } from 'antd';
+import { Col, Container, Nav, Navbar, Row, ListGroup, Alert, Form as Form1 } from 'react-bootstrap';
+import { Button, Modal,  Form, Input, InputNumber, Select  } from 'antd';
 import "video-react/dist/video-react.css";
 import './uploadEbook.css';
 import { faPlus, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
@@ -8,7 +8,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { InboxOutlined } from '@ant-design/icons';
 import { message, Upload, Image } from 'antd';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 import TextArea from 'antd/es/input/TextArea';
+import axios from 'axios';
+import { Option } from 'antd/es/mentions';
 const { Dragger } = Upload;
 
 
@@ -30,6 +33,9 @@ const onFinish = (values) => {
 const UploadEbook = () => {
     const [bookTitle, setBookTitle] = useState("Title");
     const [bookIntroduction, setBookIntroduction] = useState("");
+    const [bookCategory, setBookCategory] = useState("trading");
+    const [bookType, setBookType] = useState("free");
+    const [bookPrice, setBookPrice] = useState(0);
     const [pic, setPic] = useState(null);
 
     const [title, setTitle] = useState("Title");
@@ -38,27 +44,6 @@ const UploadEbook = () => {
         title: "Title 1",
         content: ""
     }])
-
-    const props = {
-        name: 'file',
-        multiple: true,
-        action: 'https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188',
-        onChange(info) {
-            const { status } = info.file;
-            if (status !== 'uploading') {
-            console.log(info.file, info.fileList);
-            }
-            if (status === 'done') {
-            message.success(`${info.file.name} file uploaded successfully.`);
-            setPic(info.file);
-            } else if (status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
-            }
-        },
-        onDrop(e) {
-            console.log('Dropped files', e.dataTransfer.files);
-        },
-    };
 
     const [selected, setSelected] = useState(0);
 
@@ -72,6 +57,7 @@ const UploadEbook = () => {
 
     }
 
+    const [error, setError] = useState("");
 
     const [selectedChapterTitle, setSelectedChapterTitle] = useState("");
     const [selectedChapterContent, setSelectedChapterContent] = useState("");
@@ -102,6 +88,102 @@ const UploadEbook = () => {
     const buttonItemLayout =
         formLayout === 'horizontal' ? { wrapperCol: { span: 14, offset: 4 } } : null;
 
+    const handleChange = async ({ file }) => {
+        try {
+            const formData = new FormData();
+            formData.append("file", file.originFileObj);
+        
+            const response = await axios.post("http://localhost:5000/works/upload/image", formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+            });
+        
+            if (response.data && response.data.url) {
+                setPic(response.data.url);
+                console.log(response.data.url);
+                file.status = 'done';
+            } else {
+                console.log("Invalid response from the server");
+            }
+        } catch (error) {
+            console.log("Error uploading image:", error.message);
+        }
+    };
+
+    const postBook = async (event) => {
+
+        event.preventDefault();
+        
+        if (!bookTitle){
+            setError("Book Title is Required!");
+            return;
+        }
+        if (!bookIntroduction){
+            setError("Book Introduction is Required!");
+            return;
+        }
+        if (!pic){
+            setError("Book Cover Image is Required!");
+            return;
+        }
+
+        let flag = false;
+        contents.forEach((content, index) => {
+            if (!content.title){
+                setError(`Title of Content#${index+1} is Required!`);
+                flag = true;
+                return;
+            }
+            if (!content.content){
+                setError(`Content of Content#${index+1} is Required!`);
+                flag = true;
+                return;
+            }
+        })
+
+        if (flag){
+            return;
+        }
+
+        setError("");
+
+        try {
+            const formData = new FormData();
+            formData.append("title", bookTitle);
+            formData.append("introduction", bookIntroduction);
+            formData.append("category", bookCategory);
+            formData.append("coverImage", pic);
+            formData.append("contents", JSON.stringify(contents));
+            formData.append("price", bookPrice);
+            formData.append("bookType", bookType);
+
+            console.log(formData);
+        
+            const response = await axios.post("http://localhost:5000/works/ebooks", {
+                title: bookTitle,
+                introduction: bookIntroduction,
+                category: bookCategory,
+                coverImage: pic,
+                contents: contents,
+                price: bookPrice,
+                bookType: bookType
+            }, {
+                headers: {
+                    "Content-Type": "application/json", // Set content type to JSON
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+            });
+
+        
+            console.log("Ebook uploaded successfully:", response.data);
+            navigate('/manage/works');
+        } catch (error) {
+            setError(error.message);
+            console.error("Error uploading ebook:", error.message);
+        }
+    }
+
     return (
         <>
             <Navbar collapseOnSelect expand="md" className="bg-body" style={{borderBottom: '1px solid lightgray' }}>
@@ -112,12 +194,24 @@ const UploadEbook = () => {
                         <Nav className="me-auto">
                         </Nav>
                         <Nav>
-                            <Button danger>Cancel</Button>
-                            <Button type='primary' danger style={{marginLeft: '10px'}}>Post</Button>
+                            <Link to={'/manage/works'}><Button danger>Cancel</Button></Link>
+                            <Button type='primary' danger style={{marginLeft: '10px'}} onClick={postBook}>Post</Button>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            
+            {
+                error ?
+                <Row>
+                    <Container style={{width: '90%'}} className='mt-3'>
+                        <Alert variant='danger'>
+                            {error}
+                        </Alert>
+                    </Container>
+                </Row>
+                : ''
+            }
             <Row md={3} xs={1} style={{width: '100%', '--bs-gutter-x': '0rem'}}>
                 <Col md={3} xs={12} className='shadow' style={{border: '1px solid lightgray', padding: '10px 15px'}}>
                     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
@@ -162,11 +256,11 @@ const UploadEbook = () => {
                     <p><b>Cover Image</b></p>
                     <Image
                         width={200}
-                        src={`https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?${1}`}
+                        src={pic}
                         placeholder={
                         <Image
                             preview={false}
-                            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
+                            src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/200w.gif?cid=6c09b952tfzojw08m6i7xegbp1fsnh2pebxy0qqbu9c5pcww&ep=v1_gifs_search&rid=200w.gif&ct=g"
                             width={200}
                         />
                         }
@@ -175,6 +269,15 @@ const UploadEbook = () => {
                     <hr />
                     <p><b>Book Description</b></p>
                     <p>{bookIntroduction}</p>
+
+                    <hr />
+                    <p><b>Book Category</b></p>
+                    <p>{bookCategory}</p>
+
+                    <hr />
+                    <p><b>Book Pricing</b></p>
+                    <p>{bookType == 'free' ? "Free" : `Paid - $${bookPrice}`}</p>
+
 
                 </Col>
             </Row>
@@ -219,6 +322,71 @@ const UploadEbook = () => {
                     ]}>
                     <Input.TextArea onChange={(e) => setBookIntroduction(e.target.value)} value={bookIntroduction}/>
                     </Form.Item>
+                    <Form.Item name={['user', 'category']} label="Category" rules={[
+                        {
+                            required: true,
+                        },
+                    ]}>
+                    <Select 
+                        defaultValue="trading"
+                        style={{
+                        width: 120,
+                        }}
+                        options={[
+                        {
+                            value: 'education',
+                            label: 'Education',
+                        },
+                        {
+                            value: 'trading',
+                            label: 'Trading',
+                        },
+                        {
+                            value: 'business',
+                            label: 'Business',
+                        },
+                        {
+                            value: 'stocks',
+                            label: 'Stocks',
+                        },
+                        ]} 
+                        onChange={(value) => setBookCategory(value)}
+                    />
+                    </Form.Item>
+                    <Form.Item name={['user', 'type']} label="Type" rules={[
+                        {
+                            required: true,
+                        },
+                    ]}>
+                    <Select 
+                        defaultValue="free"
+                        style={{
+                        width: 120,
+                        }}
+                        options={[
+                        {
+                            value: 'free',
+                            label: 'Free',
+                        },
+                        {
+                            value: 'paid',
+                            label: 'Paid',
+                        },
+                        ]} 
+                        onChange={(value) => setBookType(value)}
+                    />
+                    </Form.Item>
+                    {
+                        bookType != 'free' ?
+                        <Form.Item name={['user', 'price']} label="Price" rules={[
+                            {
+                                required: true,
+                            },
+                        ]}>
+                        <InputNumber min={1} max={10000} defaultValue={1} onChange={(value)=>setBookPrice(value)} />
+                        </Form.Item>
+                        : ''
+                    }    
                     <Form.Item
                     name={['user', 'cover']}
                     label="Cover"
@@ -228,7 +396,16 @@ const UploadEbook = () => {
                         },
                     ]}
                     >
-                        <Dragger {...props} >
+                        <Dragger 
+                            accept=".png"
+                            listType="picture"
+                            maxCount={1}
+                            name="file" // Ensure that the field name matches the server's expected field name
+                            onChange={handleChange}
+                            onDrop = {(e) => {
+                                console.log('Dropped files', e.dataTransfer.files)
+                            }}
+                        >
                             <p className="ant-upload-drag-icon">
                             <InboxOutlined />
                             </p>

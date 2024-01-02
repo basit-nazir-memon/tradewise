@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Image } from 'react-bootstrap';
 
-function BasicExample({ title, name, source,imagesrc }) {
+function BasicExample({ title, name, source, imagesrc, type }) {
   return (
     <Card style={{ width: '25%', height: '10%', }}>
       <Card.Img
@@ -17,7 +17,19 @@ function BasicExample({ title, name, source,imagesrc }) {
         }}
       />
       <Card.ImgOverlay>
-        <Button variant="danger" size='sm' style={{ right: '10px' }}>Live</Button>
+      {type === 'Published' ? (
+        <Button variant="success" size="sm" style={{ marginRight: '10px' }}>
+          Published
+        </Button>
+      ) : type === 'Live' ? (
+        <Button variant="danger" size="sm" style={{ marginRight: '10px' }}>
+          Live
+        </Button>
+      ) : (
+        <Button variant="success" size="sm" style={{ marginRight: '10px' }}>
+          Free
+        </Button>
+      )}
       </Card.ImgOverlay>
       <Card.Body style={{ display: 'flex', flexDirection: 'column', minHeight: '50px' }}>
         <div style={{ flex: 1 }}>

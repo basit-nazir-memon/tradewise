@@ -1,8 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Image } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-const VideoComponent = ({video}) => {
+const VideoComponent = ({video, isAuthor, handleDelete}) => {
+
     return (
         <Card style={{margin: '5px'}}>
             <Card.Img
@@ -30,6 +33,18 @@ const VideoComponent = ({video}) => {
                 </div>
                 <Card.Text>{video.views} views</Card.Text>
             </Card.Body>
+            {
+                isAuthor? 
+                    <Card.Footer style={{display: 'flex', justifyContent: 'flex-end'}}>
+                        <Button style={{marginRight: '5px'}} variant='outline-danger' onClick={() => handleDelete(video._id)}>
+                            <FontAwesomeIcon icon={faTrash}/>
+                        </Button>
+                        <Button variant='outline-warning'>
+                            <FontAwesomeIcon icon={faPenToSquare}/>
+                        </Button>
+                    </Card.Footer>
+                : ''
+            }
         </Card>
     );
 }

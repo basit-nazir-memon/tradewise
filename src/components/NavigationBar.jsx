@@ -25,9 +25,7 @@ const NavigationBar = () => {
         <Navbar collapseOnSelect expand="md" className="bg-body-tertiary mb-3">
             <Container>
                 <Navbar.Brand>
-                    <Link className="remove-link-style logo"  to='/' style={{textDecoration: 'none'}}>
-                        <img src={sitelogo} />
-                    </Link>
+                    <Link className='remove-link-style' to='/' style={{ textDecoration: 'none' }}>TradeWise</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -65,18 +63,15 @@ const NavigationBar = () => {
                                 } 
                                 id="collapsible-nav-dropdown">
                                     {
-                                        role === 'admin' ? ( 
-                                        <>
-                                            <NavDropdown.Item>
-                                                <Link className='remove-link-style' to='/admin/users'>Manage Users</Link>
-                                            </NavDropdown.Item>
-                                            <NavDropdown.Item>
-                                                <Link className='remove-link-style' to='/admin/blogs'>Manage Posts</Link>
-                                            </NavDropdown.Item> 
-                                        </>):
-                                        ''
+                                        role === 'admin' ? (
+                                            <>
+                                                <NavDropdown.Item>
+                                                    <Link className='remove-link-style' to='/admin'>Dashboard</Link>
+                                                </NavDropdown.Item>
+                                            </>) :
+                                            ''
                                     }
-                                    
+
                                     <NavDropdown.Item>
                                         <Link className='remove-link-style' to='/profile'>Profile</Link>
                                     </NavDropdown.Item>
@@ -99,17 +94,17 @@ const NavigationBar = () => {
                                 </NavDropdown>
                             </Nav>
                         ) : (
-                        <Nav>
-                            
-                            <Link className='remove-link-style' to='/register'>
-                                <Button className='m-1' variant="outline-success">Register
-                                </Button>
-                            </Link>
-                            
-                            <Link className='remove-link-style' to='/login'>
-                                <Button className='m-1'variant="outline-primary">Login</Button>
-                            </Link>
-                        </Nav>
+                            <Nav>
+
+                                <Link className='remove-link-style' to='/register'>
+                                    <Button className='m-1' variant="outline-success">Register
+                                    </Button>
+                                </Link>
+
+                                <Link className='remove-link-style' to='/login'>
+                                    <Button className='m-1' variant="outline-primary">Login</Button>
+                                </Link>
+                            </Nav>
                         )
                     }
                 </Navbar.Collapse>

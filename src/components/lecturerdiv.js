@@ -1,7 +1,7 @@
 
 import { Card, Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-function Lecdiv({ imageUrl, title, description, works, subscribers, rating }) {
+function Lecdiv({ imageUrl, title, description, works, subscribers, rating, tags,totalrating }) {
     const starCount = 5;
     const filledStar = '\u2605';
     return (
@@ -23,15 +23,15 @@ function Lecdiv({ imageUrl, title, description, works, subscribers, rating }) {
                                         </div>
                                     </div>
                                 </div>
-                                <div style={{ display: 'flex', flexDirection: 'column', width: '20%', marginLeft: '5%' ,marginTop:'3%'}}>
+                                <div style={{ display: 'flex', flexDirection: 'column', width: '20%', marginLeft: '5%', marginTop: '3%' }}>
                                     <Button style={{ backgroundColor: '#fb4d1f', borderColor: '#fb4d1f' }}>+Subscribe</Button>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' ,marginTop:'2%'}}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', marginTop: '2%' }}>
                                         <div >
                                             <Card.Title style={{ color: '#fb4d1f', fontSize: '40px', fontStyle: 'italic' }}>{rating}</Card.Title>
                                         </div>
                                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                                             <span style={{ color: '#fb4d1f', fontSize: '24px' }}>{filledStar.repeat(starCount)}</span>
-                                            <span style={{ color: '#fb4d1f', fontSize: '14px' }}>11234 ratings</span>
+                                            <span style={{ color: '#fb4d1f', fontSize: '14px' }}>{totalrating} ratings</span>
                                         </div>
                                     </div>
                                 </div>
@@ -39,9 +39,9 @@ function Lecdiv({ imageUrl, title, description, works, subscribers, rating }) {
                         </div>
                     </div>
                     <div className="Lecbtn">
-                        <Link to="/forex">Forex</Link>
-                        <Link to="/trading">Trading</Link>
-                        <Link to="/verified">Verified</Link>
+                        {tags.map((element, index) => (
+                            <Link key={index} to="#">{element}</Link>
+                        ))}
                     </div>
                     <div>
                         <Card.Text>{description}</Card.Text>
